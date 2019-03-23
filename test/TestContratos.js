@@ -1,11 +1,11 @@
 
+// Pruebas unitarias "PlataformaTokens.sol"
+
 const PlataformaTokens = artifacts.require("PlataformaTokens");
 
 contract("TestContratos",async (accounts) => {
 
-// Pruebas unitarias "PlataformaTokens.sol"
-
-/* Por unificar durante todos los tests:
+/* Por dotar de mayor comprension durante todos los tests:
 accounts[0] es la cuenta administradora de la PlataformaTokens
 accounts[1] es la empresa IECISA
 accounts[2] es Maria Salgado, empleado 1 de IECISA
