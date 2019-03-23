@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="logic.js"></script>
+</head>
+
+<body onload="getInfoEmpleado()">
+  <div id="empleado" class="row centrado">
+    <h2> Zona Empleado </h2>
+    <p id="welcome" class="cursiva"> ¡Hola! </p>
+    <p class="cursiva"> Gestiona los tokens que has ganado por tus iniciativas en la empresa </p>
+    <div class="cuadro">
+      <h4>Tus datos </h4>
+      <label for="nEmpleado"> Nombre: </label>
+      <span name = nEmpleado id="nombreEmpleado"> </span>
+      <br/><br/>
+      <label for="cEmpleado"> Número de empleado: </label>
+      <span name = cEmpleado id="cifEmpleado"> </span>
+      <br/><br/>
+      <label for="aEmpleado"> Address: </label>
+      <span name = aEmpleado id="addressEmpleado"> </span>
+      <br/><br/>
+      <label for="tEmpleado"> Tokens: </label>
+      <span name = tEmpleado id="tokensEmpleado"> </span>
+    </div>
+       <div class="column-portada cuadro">
+         <h4> Transferir tokens a un compañeros </h4>
+         <label for="empleadoSelect">Alastria ID de tu compañero</label>
+         <input type="text" name="empleadoSelect" id="empleadoSelect"/>
+         <br><br>
+         <label for="cantidadTokensEmpleado">Cantidad</label>
+         <input type="number" name="cantidadTokensEmpleado" id="cantidadTokensEmpleado"/>
+         <br><br>
+         <button type="button" id="transferirToken" onclick="transferirToken()" >Transferir tokens</button>
+       </div>
+       <div class="column-portada cuadro">
+          <h4> Canjea tus tokens por un premio </h4>
+          <label for="premioSelect">Selecciona tu premio</label>
+          <br><br>
+          <select name="premioSelect" id="premioSelect">
+            <option value="1">Casquitos inalambricos (1 token)</option>
+            <option value="2">Entrada a evento (3 tokens)</option>
+            <option value="3">Un dia de vacaciones (10 tokens)</option>
+          </select>
+          <br><br>
+          <button type="button" id="canjearToken" onclick="canjearToken()" >Canjear tokens</button>
+       </div>
+     </div>
+     <div id="console" class="cuadro">
+       <h2> Consola de resultados </h2>
+   	   <p id="result"></p>
+        <button type="button" id="limpiar" onclick="limpiar()" >Limpiar</button>
+     </div>
+  </body>
+  </html>
