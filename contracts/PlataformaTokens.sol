@@ -84,6 +84,22 @@ contract PlataformaTokens is Empresas, Empleados, Token, Owned{
         emit TokensEmitidos(msg.sender, _to, _n);
     }
     
+    
+    
+    /* 
+    * Una empleado puede invocar a esta funcion para canjear sus tokens por premios
+    */
+    function canjearTokens(uint256 _n) public{
+        
+        // encontramos la empresa a la que pertenece el empleado
+        address empresa = empleados[msg.sender].empresa;
+        
+        // se transfieren los tokens a la empresa
+        transfer(empresa, _n);
+        
+        emit TokensEmitidos(msg.sender, empresa, _n);
+    }
+    
 
     
 }
