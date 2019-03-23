@@ -53,7 +53,10 @@ contract PlataformaTokens is Empresas, Empleados, Token, Owned{
     * El administrador del sistema invoca a esta funcion para asignar los tokens iniciales a una empresa
     */
     function emitirTokensRegistro(address _to) public esEmpresaValida(_to) onlyOwner {
+        
+        // se transfieren los tokens
         transfer(_to, 100);
+        
         emit TokensEmitidos(msg.sender, _to, 100);
     }
     
@@ -62,7 +65,10 @@ contract PlataformaTokens is Empresas, Empleados, Token, Owned{
     * Una empresa puede invocar a esta funcion para emitir tokens a un empleado
     */
     function emitirTokens(address _to, uint256 _n) public esEmpresaValida(msg.sender) empleadoTrabajaEnEstaEmpresa(_to){
+        
+        // se transfieren los tokens
         transfer(_to, _n);
+        
         emit TokensEmitidos(msg.sender, _to, _n);
     }
     
@@ -71,7 +77,10 @@ contract PlataformaTokens is Empresas, Empleados, Token, Owned{
     * Una empleado puede invocar a esta funcion para transferir tokens a un companero de la misma empresa
     */
     function transferirTokens(address _to, uint256 _n) public esCompanero(_to){
+        
+        // se transfieren los tokens
         transfer(_to, _n);
+        
         emit TokensEmitidos(msg.sender, _to, _n);
     }
     
