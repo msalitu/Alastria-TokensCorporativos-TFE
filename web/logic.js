@@ -55,8 +55,39 @@ var ABI_Empresa = [
 		"type": "function"
 	}
 ];
-var contract = web3.eth.contract(ABI_Empresa).at("0x28dd827458722bdf05a053eb8fcf4f1a112f132f");
+var plataforma = web3.eth.contract(ABI_Empresa).at("0x28dd827458722bdf05a053eb8fcf4f1a112f132f");
 
+/* Por unificar durante todos los tests:
+accounts[0] es la cuenta administradora de la PlataformaTokens
+accounts[1] es la empresa IECISA
+accounts[2] es Maria Salgado, empleado 1 de IECISA
+accounts[3] es Juan Perez, empleado 2 de IECISA
+accounts[4] es la empresa UNIR
+accounts[5] es Fidel Garcia, empleado 1 de UNIR
+accounts[6] es Belen Sanchez, empleado 2 de UNIR
+*/
+
+// Si ganache web3.eth.accounts y ya estan desbloqueadas
+var accounts = [
+	web3.eth.accounts[0],
+	web3.eth.accounts[1],
+	web3.eth.accounts[2],
+	web3.eth.accounts[3],
+	web3.eth.accounts[4],
+	web3.eth.accounts[5],
+	web3.eth.accounts[6]
+];
+
+// Si testnet en local web3.personal.newAccount(pss); y desbloquear con web3.personal.unlockAccount(address, pss, 0);
+/*
+var cuentaAdmin = web3.personal.newAccount("test");
+web3.personal.unlockAccount(account, "test", 0);
+var accounts = [
+	cuentaAdmin
+];
+*/
+
+console.log(accounts);
 
 // Funciones auxiliares para web3 0.2 ------------------------------------------
 function leftPad (str, len, ch) {
@@ -143,7 +174,10 @@ function keccak256(...args) {
   function registrarEmpleado(){
     var nombre = document.getElementById("nombreEmpleado").value;
     var pss = document.getElementById("pssEmpleado").value;
-    var address = "00000";
+		var nEmpleado = document.getElementById("numEmpleado").value;
+    var address = accounts[2];
+		var cuentaEmpresa = document.getElementById("addressEmpresa").value;
+		plataforma.registrarEmpleado.sendTransaction(address, nombre, nEmpleado, {from: cuentaEmpresa});
     var msg = "OK! Se ha creado correctamente la cuenta " + address + " para " + nombre + " con contraseña " + pss;
     imprimir(msg);
   }
@@ -151,11 +185,12 @@ function keccak256(...args) {
 
 	// Registrar una nueva empresa
   function registrarEmpresa(){
+		// campo cuenta por si ya tiene alastria account
     var nombre = document.getElementById("nEmpresa").value;
     var cif = document.getElementById("cEmpresa").value;
     var pss = document.getElementById("pEmpresa").value
-    var address = web3.eth.accounts[1];
-    contract.registrarEmpresa(address, nombre, cif).sendTransaction();
+    var address = accounts[1];
+    plataforma.registrarEmpresa.sendTransaction(address, nombre, cif, {from: account[0]});
     var msg = "OK! Se ha creado correctamente la cuenta " + address + " para " + nombre + " con contraseña " + pss;
     console.log(msg);
     var ask = window.confirm(msg);
@@ -203,6 +238,7 @@ function keccak256(...args) {
   function loginEmpleado(){
     location.replace("empleado.html");
     var address = document.getElementById("logEmpleado").value;
+		plataforma.existeEmpleado.call(address);
     localStorage.setItem("accountEmpleado", address);
   }
 

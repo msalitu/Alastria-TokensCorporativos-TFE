@@ -26,8 +26,8 @@ contract PlataformaTokens is Empresas, Empleados, Token, Owned{
         // se anade a la lista de direcciones de empresas
         empresasList.push(_cuenta);
         
-        // se le transfieren 100 tokens iniciales
-        transfer(_cuenta, 100);
+        // se le transfieren una cantidad de tokens iniciales
+        emitirTokensRegistro(_cuenta);
         
         emit EmpresaRegistrada(_cuenta, _nombre, _cif);
     }
@@ -39,7 +39,7 @@ contract PlataformaTokens is Empresas, Empleados, Token, Owned{
     function registrarEmpleado(address _cuenta, string _nombre, string _numEmpleado) public esEmpresaValida(msg.sender){
         
         // se anade a la tabla general de empleados
-        empleados[_cuenta] = Empleado(_cuenta, _nombre, _numEmpleado, msg.sender);
+        empleados[_cuenta] = Empleado(_cuenta, _nombre, _numEmpleado, msg.sender, true);
         
         // se anade a la lista de direcciones de empleados de la empresa
         direccionesEmpleadosEmpresa[msg.sender].push(_cuenta);
@@ -49,10 +49,28 @@ contract PlataformaTokens is Empresas, Empleados, Token, Owned{
     }
     
     
-    /* ??????????????? HACE FALTA
+    /* 
+    * El administrador del sistema invoca a esta funcion para asignar los tokens iniciales a una empresa
+    */
+    function emitirTokensRegistro(address _to) public esEmpresaValida(_to) onlyOwner {
+        transfer(_to, 100);
+        emit TokensEmitidos(msg.sender, _to, 100);
+    }
+    
+    
+    /* 
     * Una empresa puede invocar a esta funcion para emitir tokens a un empleado
     */
-    function emitirTokensEmpresa(address _to, uint256 _n) public onlyOwner esEmpresaValida(_to){
+    function emitirTokens(address _to, uint256 _n) public esEmpresaValida(msg.sender) empleadoTrabajaEnEstaEmpresa(_to){
+        transfer(_to, _n);
+        emit TokensEmitidos(msg.sender, _to, _n);
+    }
+    
+    
+    /* 
+    * Una empleado puede invocar a esta funcion para transferir tokens a un companero de la misma empresa
+    */
+    function transferirTokens(address _to, uint256 _n) public esCompanero(_to){
         transfer(_to, _n);
         emit TokensEmitidos(msg.sender, _to, _n);
     }

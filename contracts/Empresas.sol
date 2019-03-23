@@ -41,4 +41,11 @@ contract Empresas {
         return (empresas[_cuenta].nombre, empresas[_cuenta].cif, empresas[_cuenta].cuenta);
     }
     
+     /*
+    * Comprobar si existe una empresa en el sistema a partir de una direccion valida
+    */
+    function existeEmpresa(address _cuenta) public view returns (bool){
+        return (empresas[_cuenta].isValue);
+    }
+    
 }
