@@ -20,8 +20,8 @@ accounts[6] es Belen Sanchez, empleado 2 de UNIR
         it("Test0: Emite evento cuando se registra una empresa en el sistema", async () => {
           let plataforma = await PlataformaTokens.deployed();
           let response = await plataforma.registrarEmpresa.sendTransaction(accounts[1], "IECISA", "CIF1", {from: accounts[0]});
-          truffleAssert.eventEmitted(response, "EmpresaRegistrada", (ev) =>{
-            return
+          truffleAssert.eventEmitted(response, 'EmpresaRegistrada', (evento) =>{
+            return evento._cuenta == accounts[1];
           })
         });
 })

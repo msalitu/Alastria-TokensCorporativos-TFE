@@ -238,8 +238,12 @@ function keccak256(...args) {
   function loginEmpleado(){
     location.replace("empleado.html");
     var address = document.getElementById("logEmpleado").value;
-		plataforma.existeEmpleado.call(address);
-    localStorage.setItem("accountEmpleado", address);
+		var exist = plataforma.existeEmpleado.call(address);
+		if (exist){
+    	localStorage.setItem("accountEmpleado", address);
+		}else{
+			alert("Esa cuenta de empleado no existe en el sistema");
+		}
   }
 
   // Cargar datos del empleado en pantalla
