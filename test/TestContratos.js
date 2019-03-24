@@ -43,12 +43,12 @@ accounts[6] es Belen Sanchez, empleado 2 de UNIR
         it("Test3: Registrar una empresa desde la cuenta administradora", async () => {
        		let plataforma = await PlataformaTokens.deployed();
       	  await plataforma.registrarEmpresa.sendTransaction(accounts[1], "IECISA", "CIF1", {from: accounts[0]});
-      		let empresa = await plataforma.getEmpresaInfo.call(accounts[1]);
+      		let nombre = await plataforma.getEmpresaNombre.call(accounts[1]);
+          let cif = await plataforma.getEmpresaCIF.call(accounts[1]);
           // La plataforma debe haber asignado 100 GPIs a la empresa al registrarla
           let tokens = await plataforma.balanceOf.call(accounts[1], {from: accounts[1]});
-      		assert.equal(empresa[0], "IECISA"); // nombre
-      		assert.equal(empresa[1], "CIF1");  // cif
-      		assert.equal(empresa[2], accounts[1]); //cuenta
+      		assert.equal(nombre, "IECISA"); // nombre
+      		assert.equal(cif, "CIF1");  // cif
           assert.equal(tokens.valueOf(), 100); // saldo tokens
         });
 
@@ -56,8 +56,8 @@ accounts[6] es Belen Sanchez, empleado 2 de UNIR
         it("Test4: Se impide registrar un empleado desde una cuenta que no es de una empresa registrada en el sistema", async () => {
           let plataforma = await PlataformaTokens.deployed();
           await plataforma.registrarEmpleado.sendTransaction(accounts[2], "Maria Salgado", "Empleado1_Empresa1", {from: accounts[4]});
-          let empleado = await plataforma.getEmpleadoInfo.call(accounts[2], {from: accounts[4]});
-          assert.isEmpty(empleado[0]);
+          let empleado = await plataforma.getEmpresaNombre.call(accounts[2], {from: accounts[4]});
+          assert.isEmpty(empleado);
         });
 
 
@@ -66,18 +66,18 @@ accounts[6] es Belen Sanchez, empleado 2 de UNIR
           await plataforma.registrarEmpleado.sendTransaction(accounts[2], "Maria Salgado", "Empleado1_Empresa1", {from: accounts[1]});
           // Maria intenta crear una cuenta para Juan
           await plataforma.registrarEmpleado.sendTransaction(accounts[3], "Juan Perez", "Empleado2_Empresa1", {from: accounts[2]});
-          let empleado = await plataforma.getEmpleadoInfo.call(accounts[3], {from: accounts[1]});
-          assert.isEmpty(empleado[0]);
+          let empleado = await plataforma.getEmpleadoNombre.call(accounts[3], {from: accounts[1]});
+          assert.isEmpty(empleado);
         });
 
 
         it("Test6: Registrar un empleado desde una cuenta de empresa valida y consultar su info desde esa misma empresa", async () => {
        		let plataforma = await PlataformaTokens.deployed();
       		await plataforma.registrarEmpleado.sendTransaction(accounts[2], "Maria Salgado", "Empleado1_Empresa1", {from: accounts[1]});
-      		let empleado = await plataforma.getEmpleadoInfo.call(accounts[2], {from: accounts[1]});
-      		assert.equal(empleado[0], "Maria Salgado"); // nombre
-      		assert.equal(empleado[1], "Empleado1_Empresa1");  // numero empleado
-      		assert.equal(empleado[2], accounts[2]); //cuenta
+      		let nombre = await plataforma.getEmpleadoNombre.call(accounts[2], {from: accounts[1]});
+          let numero = await plataforma.getEmpleadoNumero.call(accounts[2], {from: accounts[1]});
+      		assert.equal(nombre, "Maria Salgado"); // nombre
+      		assert.equal(numero, "Empleado1_Empresa1");  // numero empleado
         });
 
 
@@ -85,8 +85,8 @@ accounts[6] es Belen Sanchez, empleado 2 de UNIR
        		let plataforma = await PlataformaTokens.deployed();
           await plataforma.registrarEmpresa.sendTransaction(accounts[4], "UNIR", "CIF2", {from: accounts[0]});
           // UNIR intenta acceder a la info de Maria
-      		let empleado = await plataforma.getEmpleadoInfo.call(accounts[2], {from: accounts[4]});
-      		assert.isEmpty(empleado[0]);
+      		let empleado = await plataforma.getEmpleadoNombre.call(accounts[2], {from: accounts[4]});
+      		assert.isEmpty(empleado);
         });
 
 
@@ -94,8 +94,8 @@ accounts[6] es Belen Sanchez, empleado 2 de UNIR
           let plataforma = await PlataformaTokens.deployed();
           await plataforma.registrarEmpleado.sendTransaction(accounts[3], "Juan Perez", "Empleado2_Empresa1", {from: accounts[1]});
           // Juan intenta acceder a la info de Maria
-          let empleado = await plataforma.getEmpleadoInfo.call(accounts[2], {from: accounts[3]});
-          assert.isEmpty(empleado[0]);
+          let empleado = await plataforma.getEmpleadoNombre.call(accounts[2], {from: accounts[3]});
+          assert.isEmpty(empleado);
         });
 
 
