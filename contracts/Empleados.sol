@@ -28,10 +28,10 @@ contract Empleados {
     
     
     /*
-    * Comprueba que el empleado es quien quiere acceder a su propia informacion
+    * Comprueba que el empleado es quien quiere acceder a su propia informacion o es su empresa
     */
-    modifier soyYo (address _cuenta){
-        if(_cuenta == msg.sender){
+    modifier tienePermisosPrivacidad (address _empleado){
+        if(_empleado == msg.sender || empleados[_empleado].empresa == msg.sender){
             _;
         }
     }
@@ -50,7 +50,7 @@ contract Empleados {
     /*
     * Consultar el nombre de un empleado de la propia empresa
     */
-    function getEmpleadoNombre(address _cuenta) public view empleadoTrabajaEnEstaEmpresa(_cuenta) soyYo(_cuenta) returns(string){
+    function getEmpleadoNombre(address _cuenta) public view tienePermisosPrivacidad(_cuenta) returns(string){
             return(empleados[_cuenta].nombre);
     }
     
@@ -58,7 +58,7 @@ contract Empleados {
     /*
     * Consultar el numero de empleado de un empleado de la propia empresa
     */
-    function getEmpleadoNumero(address _cuenta) public view empleadoTrabajaEnEstaEmpresa(_cuenta) soyYo(_cuenta) returns(string){
+    function getEmpleadoNumero(address _cuenta) public view tienePermisosPrivacidad(_cuenta) returns(string){
             return(empleados[_cuenta].numEmpleado);
     }
     
