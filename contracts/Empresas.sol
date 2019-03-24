@@ -34,12 +34,20 @@ contract Empresas {
     
     
     /*
-    * Para obtener la informacion completa de una empresa a partir de su direccion
+    * Para obtener la informacion del nombre de una empresa a partir de su direccion
     */
-    function getEmpresaInfo(address _cuenta) public view returns (string, string, address){
-        require(empresas[_cuenta].isValue, "Direccion no valida");
-        return (empresas[_cuenta].nombre, empresas[_cuenta].cif, empresas[_cuenta].cuenta);
+    function getEmpresaNombre(address _cuenta) public view esEmpresaValida(_cuenta) returns (string){
+        return (empresas[_cuenta].nombre);
     }
+    
+    
+    /*
+    * Para obtener la informacion del cif de una empresa a partir de su direccion
+    */
+    function getEmpresaCIF(address _cuenta) public view esEmpresaValida(_cuenta) returns (string){
+        return (empresas[_cuenta].cif);
+    }
+    
     
      /*
     * Comprobar si existe una empresa en el sistema a partir de una direccion valida

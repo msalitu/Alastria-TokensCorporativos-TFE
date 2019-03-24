@@ -28,6 +28,16 @@ contract Empleados {
     
     
     /*
+    * Comprueba que el empleado es quien quiere acceder a su propia informacion
+    */
+    modifier soyYo (address _cuenta){
+        if(_cuenta == msg.sender){
+            _;
+        }
+    }
+    
+    
+    /*
     * Comprueba que un empleado actualmente este trabajando en la misma empresa que llama a la funcion (msg.sender)
     */
     modifier esCompanero (address _to){
@@ -38,13 +48,18 @@ contract Empleados {
     
     
     /*
-    * Consultar la info de un empleado de la empresa
+    * Consultar el nombre de un empleado de la propia empresa
     */
-    function getEmpleadoInfo(address _cuenta) public view empleadoTrabajaEnEstaEmpresa(_cuenta) 
-        returns(string, string, address){
-            
-            return(empleados[_cuenta].nombre, empleados[_cuenta].numEmpleado, empleados[_cuenta].cuenta);
-            
+    function getEmpleadoNombre(address _cuenta) public view empleadoTrabajaEnEstaEmpresa(_cuenta) soyYo(_cuenta) returns(string){
+            return(empleados[_cuenta].nombre);
+    }
+    
+    
+    /*
+    * Consultar el numero de empleado de un empleado de la propia empresa
+    */
+    function getEmpleadoNumero(address _cuenta) public view empleadoTrabajaEnEstaEmpresa(_cuenta) soyYo(_cuenta) returns(string){
+            return(empleados[_cuenta].numEmpleado);
     }
     
     

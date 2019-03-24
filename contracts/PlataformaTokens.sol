@@ -7,12 +7,34 @@ import "./Owned.sol";
 
 contract PlataformaTokens is Empresas, Empleados, Token, Owned{
     
+    
+    uint256 value_test;
+    
+    
+    constructor() public{ 
+        value_test = 22;
+    }
+    
+    
     /*
     * Eventos 
     */
     event EmpresaRegistrada(address _cuenta, string _nombre, string _cif);
     event EmpleadoRegistrado(address _cuenta, string _nombre, string _numEmpleado, address _empresa);
     event TokensEmitidos(address _from, address _to, uint256 _n);
+    event TestValue(uint256 indexed value);
+    
+    
+    /*
+    * Funcion para comprobar el correcto acceso al smart contract desde el front
+    */
+    function testContract() public returns (uint256){
+        
+        emit TestValue (value_test);
+        
+        return value_test;
+        
+    }
     
     
     /*
@@ -29,7 +51,8 @@ contract PlataformaTokens is Empresas, Empleados, Token, Owned{
         // se le transfieren una cantidad de tokens iniciales
         emitirTokensRegistro(_cuenta);
         
-        emit EmpresaRegistrada(_cuenta, _nombre, _cif);
+        emit EmpresaRegistrada(empresas[_cuenta].cuenta, empresas[_cuenta].nombre, empresas[_cuenta].cif);
+        
     }
     
     
@@ -85,7 +108,6 @@ contract PlataformaTokens is Empresas, Empleados, Token, Owned{
     }
     
     
-    
     /* 
     * Una empleado puede invocar a esta funcion para canjear sus tokens por premios
     */
@@ -100,6 +122,5 @@ contract PlataformaTokens is Empresas, Empleados, Token, Owned{
         emit TokensEmitidos(msg.sender, empresa, _n);
     }
     
-
     
 }
