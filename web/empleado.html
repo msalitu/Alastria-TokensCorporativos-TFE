@@ -39,15 +39,16 @@
        </div>
        <div class="column-portada cuadro">
           <h4> Canjea tus tokens por un premio </h4>
-          <label for="premioSelect">Selecciona tu premio</label>
+          <label>Selecciona tu premio</label>
           <br><br>
-          <select name="premioSelect" id="premioSelect">
-            <option value="1">Casquitos inalambricos (1 token)</option>
-            <option value="2">Entrada a evento (3 tokens)</option>
-            <option value="3">Un dia de vacaciones (10 tokens)</option>
-          </select>
-          <br><br>
-          <button type="button" id="canjearToken" onclick="canjearToken()" >Canjear tokens</button>
+            <span >Casquitos inalambricos (1 token)</option>
+<button type="button" id="casquitos" onclick="canjearTokensCasquitos()" >Canjear tokens</button>
+	<br><br>
+            <span >Entrada a evento (3 tokens)</option>
+<button type="button" id="evento" onclick="canjearTokensEvento()" >Canjear tokens</button>
+<br><br>
+            <span >Un dia de vacaciones (10 tokens)</option>
+          <button type="button" id="vacaciones" onclick="canjearTokensVacaciones()" >Canjear tokens</button>
        </div>
      </div>
      <div id="console" class="cuadro">

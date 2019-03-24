@@ -127,6 +127,7 @@ function keccak256(...args) {
   function loginEmpresa(){
     var address = document.getElementById("loginEmpresaT").value;
 	var pss = document.getElementById("pssEmpresa").value;
+	try{
 	web3.personal.unlockAccount(address, pss, 0);
 		
 		var exist = plataforma.existeEmpresa.call(address, {from: accounts[0], gas:30000});
@@ -137,6 +138,9 @@ function keccak256(...args) {
 		}else{
 			window.alert("No existe una empresa con esa cuenta en el sistema. Por favor, registrate");
 		}
+	}catch(error) {
+		alert("¡Contraseña incorrecta!");
+	}
   }
 
 // Cerrar sesion en una empresa
@@ -167,6 +171,11 @@ function logoutEmpresa(){
     var cantidad = document.getElementById("cantidadTokens").value;
     var address_to = document.getElementById("empleadoReceptor").value;
     var address_from = localStorage.getItem("accountEmpresa");
+
+	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+	if(saldo < cantidad){
+		alert("¡Vaya! No tienes suficientes tokens");
+	}else{
 		plataforma.emitirTokens.sendTransaction(address_to, cantidad, {from: address_from, gas:200000},
 			function (error,result){
 				if (!error){
@@ -184,6 +193,7 @@ function logoutEmpresa(){
 				}
 			}
 		);
+	}
   }
 
 
@@ -287,17 +297,17 @@ function logoutEmpresa(){
   function loginEmpleado(){
     var address = document.getElementById("logEmpleado").value;
 	var pss = document.getElementById("pssEmpleado").value;
-	var ok = web3.personal.unlockAccount(address, pss, 0);
-	if(ok){
+	try{
+		web3.personal.unlockAccount(address, pss, 0);
 		var exist = plataforma.existeEmpleado.call(address, {from: accounts[0], gas:30000});
-		if (exist){
-    			localStorage.setItem("accountEmpleado", address);
-			localStorage.setItem("pssEmpleado", pss);
-			location.replace("empleado.html");
-		}else{
-			alert("Esa cuenta de empleado no existe en el sistema");
-		}
-	}else{
+			if (exist){
+	    			localStorage.setItem("accountEmpleado", address);
+				localStorage.setItem("pssEmpleado", pss);
+				location.replace("empleado.html");
+			}else{
+				alert("Esa cuenta de empleado no existe en el sistema");
+			}
+	}catch(error) {
 		alert("¡Contraseña incorrecta!");
 	}
   }
@@ -331,7 +341,12 @@ function logoutEmpleado(){
   function transferirToken(){
     var cantidad = document.getElementById("cantidadTokensEmpleado").value;
     var address_to = document.getElementById("empleadoSelect").value;
-    var address_from = localStorage.getItem("accountEmpleado");;
+    var address_from = localStorage.getItem("accountEmpleado");
+
+	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+	if(saldo < cantidad){
+		alert("¡Vaya! No tienes suficientes tokens");
+	}else{
 
 		plataforma.transferirTokens.sendTransaction(address_to, cantidad, {from: address_from, gas:200000},
 			function (error,result){
@@ -340,7 +355,9 @@ function logoutEmpleado(){
 						function(error, result){
 							if (!error){
 								var msg = "OK! El empleado " + result.args._from + " ha emitido " + result.args._n + " tokens al empleado " + result.args._to;
-						    imprimir(msg);
+						    		imprimir(msg);
+								var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+								document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
 							}else{
 								console.log("Error" + error);
 							}
@@ -350,24 +367,95 @@ function logoutEmpleado(){
 				}
 			}
 		);
+	}
 
-		var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-		document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
+		
 
   }
 
-  // Canjear token para un empleado
-  function canjearToken(){
+  // Canjear tokens para un empleado por unos casquitos
+  function canjearTokensCasquitos(){
     var address_from = document.getElementById("addressEmpleado").innerHTML;
-    var x = document.getElementById("premioSelect");
-    var premio = x.options[x.selectedIndex].text;
-    var cantidad;
-    if(premio == "Casquitos inalambricos (1 token)"){ cantidad = 1; premio = "Casquitos inalambricos";}
-    if(premio == "Entrada a evento (3 tokens)"){ cantidad = 3; premio = "Entrada a evento";}
-    if(premio == "Un dia de vacaciones (10 tokens)"){ cantidad = 10; premio = "Un dia de vacaciones";}
-		plataforma.canjearTokens.sendTransaction(cantidad, {from: address_from, gas:200000});
-		var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-		document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
-    var msg = "OK! El empleado " + address_from + " ha canjeado " + cantidad + " tokens a cambio de " + premio;
-    imprimir(msg);
+	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+	if(saldo < 1){
+		alert("¡Vaya! No tienes suficientes tokens");
+	}else{
+		plataforma.canjearTokens.sendTransaction(1, {from: address_from, gas:200000},
+			function (error,result){
+					if (!error){
+						var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
+							function(error, result){
+								if (!error){
+							    		imprimir("OK! El empleado " + result.args._from + " ha canjeado 1 token a cambio de unos casquitos");
+									var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+									document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
+								}else{
+									console.log("Error" + error);
+								}
+							});
+					} else {
+						console.error("Error" + error);
+					}
+				}
+		);
+	}
+  }
+
+
+// Canjear tokens para un empleado por una entrada a un evento
+  function canjearTokensEvento(){
+    var address_from = document.getElementById("addressEmpleado").innerHTML;
+
+	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+	if(saldo < 3){
+		alert("¡Vaya! No tienes suficientes tokens");
+	}else{
+		plataforma.canjearTokens.sendTransaction(3, {from: address_from, gas:200000},
+			function (error,result){
+					if (!error){
+						var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
+							function(error, result){
+								if (!error){
+							    		imprimir("OK! El empleado " + result.args._from + " ha canjeado 3 tokens a cambio de una entrada a un evento");
+									var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+									document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
+								}else{
+									console.log("Error" + error);
+								}
+							});
+					} else {
+						console.error("Error" + error);
+					}
+				}
+		);
+	}
+  }
+
+
+// Canjear tokens para un empleado por un dia de vacaciones
+  function canjearTokensVacaciones(){
+    var address_from = document.getElementById("addressEmpleado").innerHTML;
+	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+	if(saldo < 10){
+		alert("¡Vaya! No tienes suficientes tokens");
+	}else{
+		plataforma.canjearTokens.sendTransaction(10, {from: address_from, gas:200000},
+			function (error,result){
+					if (!error){
+						var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
+							function(error, result){
+								if (!error){
+							    		imprimir("OK! El empleado " + result.args._from + " ha canjeado 10 tokens a cambio de un dia de vacaciones");
+									var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+									document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
+								}else{
+									console.log("Error" + error);
+								}
+							});
+					} else {
+						console.error("Error" + error);
+					}
+				}
+		);
+	}
   }
