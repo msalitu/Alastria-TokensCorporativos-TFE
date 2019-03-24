@@ -8,33 +8,12 @@ import "./Owned.sol";
 contract PlataformaTokens is Empresas, Empleados, Token, Owned{
     
     
-    uint256 value_test;
-    
-    
-    constructor() public{ 
-        value_test = 22;
-    }
-    
-    
     /*
     * Eventos 
     */
     event EmpresaRegistrada(address _cuenta, string _nombre, string _cif);
     event EmpleadoRegistrado(address _cuenta, string _nombre, string _numEmpleado, address _empresa);
     event TokensEmitidos(address _from, address _to, uint256 _n);
-    event TestValue(uint256 indexed value);
-    
-    
-    /*
-    * Funcion para comprobar el correcto acceso al smart contract desde el front
-    */
-    function testContract() public returns (uint256){
-        
-        emit TestValue (value_test);
-        
-        return value_test;
-        
-    }
     
     
     /*

@@ -1,7 +1,7 @@
 
 
 //Se recuperan los contratos con su dirección
-var ABI = [{"constant": false,"inputs": [],"name": "acceptOwnership","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_spender","type": "address"},{"name": "_value","type": "uint256"}],"name": "approve","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_n","type": "uint256"}],"name": "canjearTokens","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_spender","type": "address"},{"name": "_subtractedValue","type": "uint256"}],"name": "decreaseAllowance","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_to","type": "address"},{"name": "_n","type": "uint256"}],"name": "emitirTokens","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_to","type": "address"}],"name": "emitirTokensRegistro","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"anonymous": false,"inputs": [{"indexed": false,"name": "_cuenta","type": "address"},{"indexed": false,"name": "_nombre","type": "string"},{"indexed": false,"name": "_cif","type": "string"}],"name": "EmpresaRegistrada","type": "event"},{"anonymous": false,"inputs": [{"indexed": false,"name": "_cuenta","type": "address"},{"indexed": false,"name": "_nombre","type": "string"},{"indexed": false,"name": "_numEmpleado","type": "string"},{"indexed": false,"name": "_empresa","type": "address"}],"name": "EmpleadoRegistrado","type": "event"},{"constant": false,"inputs": [{"name": "_spender","type": "address"},{"name": "_addedValue","type": "uint256"}],"name": "increaseAllowance","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_cuenta","type": "address"},{"name": "_nombre","type": "string"},{"name": "_numEmpleado","type": "string"}],"name": "registrarEmpleado","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_cuenta","type": "address"},{"name": "_nombre","type": "string"},{"name": "_cif","type": "string"}],"name": "registrarEmpresa","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [],"name": "testContract","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"anonymous": false,"inputs": [{"indexed": false,"name": "_from","type": "address"},{"indexed": false,"name": "_to","type": "address"},{"indexed": false,"name": "_n","type": "uint256"}],"name": "TokensEmitidos","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "value","type": "uint256"}],"name": "TestValue","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "_from","type": "address"},{"indexed": true,"name": "_to","type": "address"}],"name": "OwnershipTransferred","type": "event"},{"constant": false,"inputs": [{"name": "_to","type": "address"},{"name": "_value","type": "uint256"}],"name": "transfer","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"anonymous": false,"inputs": [{"indexed": true,"name": "from","type": "address"},{"indexed": true,"name": "to","type": "address"},{"indexed": false,"name": "value","type": "uint256"}],"name": "Transfer","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "owner","type": "address"},{"indexed": true,"name": "spender","type": "address"},{"indexed": false,"name": "value","type": "uint256"}],"name": "Approval","type": "event"},{"constant": false,"inputs": [{"name": "_from","type": "address"},{"name": "_to","type": "address"},{"name": "_value","type": "uint256"}],"name": "transferFrom","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_to","type": "address"},{"name": "_n","type": "uint256"}],"name": "transferirTokens","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_newOwner","type": "address"}],"name": "transferOwnership","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"inputs": [],"payable": false,"stateMutability": "nonpayable","type": "constructor"},{"constant": true,"inputs": [{"name": "_tokenOwner","type": "address"},{"name": "_spender","type": "address"}],"name": "allowance","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_tokenOwner","type": "address"}],"name": "balanceOf","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "decimals","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "existeEmpleado","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "existeEmpresa","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "getEmpleadoNombre","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "getEmpleadoNumero","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "getEmpresaCIF","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "getEmpresaNombre","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "listarEmpleados","outputs": [{"name": "","type": "address[]"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "listarEmpresas","outputs": [{"name": "","type": "address[]"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "name","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "newOwner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "owner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "symbol","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "totalSupply","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}];
+var ABI = [{"constant": true,"inputs": [],"name": "name","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_spender","type": "address"},{"name": "_value","type": "uint256"}],"name": "approve","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "totalSupply","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "getEmpleadoNombre","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_from","type": "address"},{"name": "_to","type": "address"},{"name": "_value","type": "uint256"}],"name": "transferFrom","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "getEmpresaNombre","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "listarEmpleados","outputs": [{"name": "","type": "address[]"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "decimals","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_spender","type": "address"},{"name": "_addedValue","type": "uint256"}],"name": "increaseAllowance","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "getEmpleadoNumero","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "listarEmpresas","outputs": [{"name": "","type": "address[]"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "existeEmpresa","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_cuenta","type": "address"},{"name": "_nombre","type": "string"},{"name": "_numEmpleado","type": "string"}],"name": "registrarEmpleado","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "_tokenOwner","type": "address"}],"name": "balanceOf","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_to","type": "address"},{"name": "_n","type": "uint256"}],"name": "transferirTokens","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [],"name": "acceptOwnership","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_n","type": "uint256"}],"name": "canjearTokens","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "owner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "symbol","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "existeEmpleado","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_spender","type": "address"},{"name": "_subtractedValue","type": "uint256"}],"name": "decreaseAllowance","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_to","type": "address"},{"name": "_n","type": "uint256"}],"name": "emitirTokens","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_to","type": "address"},{"name": "_value","type": "uint256"}],"name": "transfer","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_to","type": "address"}],"name": "emitirTokensRegistro","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_cuenta","type": "address"},{"name": "_nombre","type": "string"},{"name": "_cif","type": "string"}],"name": "registrarEmpresa","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "newOwner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_tokenOwner","type": "address"},{"name": "_spender","type": "address"}],"name": "allowance","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_cuenta","type": "address"}],"name": "getEmpresaCIF","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_newOwner","type": "address"}],"name": "transferOwnership","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"anonymous": false,"inputs": [{"indexed": false,"name": "_cuenta","type": "address"},{"indexed": false,"name": "_nombre","type": "string"},{"indexed": false,"name": "_cif","type": "string"}],"name": "EmpresaRegistrada","type": "event"},{"anonymous": false,"inputs": [{"indexed": false,"name": "_cuenta","type": "address"},{"indexed": false,"name": "_nombre","type": "string"},{"indexed": false,"name": "_numEmpleado","type": "string"},{"indexed": false,"name": "_empresa","type": "address"}],"name": "EmpleadoRegistrado","type": "event"},{"anonymous": false,"inputs": [{"indexed": false,"name": "_from","type": "address"},{"indexed": false,"name": "_to","type": "address"},{"indexed": false,"name": "_n","type": "uint256"}],"name": "TokensEmitidos","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "_from","type": "address"},{"indexed": true,"name": "_to","type": "address"}],"name": "OwnershipTransferred","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "from","type": "address"},{"indexed": true,"name": "to","type": "address"},{"indexed": false,"name": "value","type": "uint256"}],"name": "Transfer","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "owner","type": "address"},{"indexed": true,"name": "spender","type": "address"},{"indexed": false,"name": "value","type": "uint256"}],"name": "Approval","type": "event"}];
 
 /* Por unificar durante todo el proyecto, para pruebas se ha realizado:
 accounts[0] es la cuenta administradora de la PlataformaTokens
@@ -16,6 +16,7 @@ accounts[6] es Belen Sanchez, empleado 2 de UNIR
 //Se instancia el objeto web3 y se inicializa el array accounts
 
 //En caso de ganache
+/*
 var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
 var accounts = [
 	web3.eth.accounts[0],
@@ -26,18 +27,15 @@ var accounts = [
 	web3.eth.accounts[5],
 	web3.eth.accounts[6]
 ];
-
+*/
 
 // En caso de testnet Alastria local
-// Si testnet en local web3.personal.newAccount(pss); y desbloquear con web3.personal.unlockAccount(address, pss, 0);
-/*
+
 var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:22001"));
-var cuentaAdmin = web3.personal.newAccount("test");
-web3.personal.unlockAccount(account, "test", 0);
-var accounts = [
-	cuentaAdmin
-];
-*/
+web3.eth.defaultAccount = web3.eth.accounts[0];
+web3.personal.unlockAccount(web3.eth.defaultAccount, "Passw0rd");
+var accounts = web3.eth.accounts;
+
 
 
 // En caso de Alastria
@@ -61,12 +59,11 @@ web3.eth.personal.unlockAccount(accounts[0],passwordAlastria);
 console.log("INIT ACCOUNTS\n" + accounts);
 
 // Se instancia el objeto web3 con la direccion donde esta desplegado el contrato
-var plataforma = web3.eth.contract(ABI).at("0xb34528bb5a7a7f8323867991a3ab1192f8b4025b");
-
+var plataforma = web3.eth.contract(ABI).at("0x23ed61cfd8da3b84ff5d0d31f285b0c07051d87b");
 
 // Se compueba que el valor es 22 y que se invoca correctamente
-var test_value = plataforma.testContract.call({from:accounts[0], gas:30000});
-console.log("DEPLOYED CONTRACT\n" + test_value);
+var test_value = plataforma.name.call({from:web3.eth.defaultAccount, gas:30000, gasPrice:0});
+console.log("DEPLOYED CONTRACT? Nombre de los tokens " + test_value);
 
 
 // Funciones auxiliares para web3 0.2
@@ -129,15 +126,25 @@ function keccak256(...args) {
   // Simular el login de una empresa
   function loginEmpresa(){
     var address = document.getElementById("loginEmpresaT").value;
-		console.log("loginEmpresa " + address);
+	var pss = document.getElementById("pssEmpresa").value;
+	web3.personal.unlockAccount(address, pss, 0);
+		
 		var exist = plataforma.existeEmpresa.call(address, {from: accounts[0], gas:30000});
 		if(exist.valueOf()){
-			// desbloquear la cuenta si hace falta
-	    localStorage.setItem("accountEmpresa", address);
+		    	localStorage.setItem("accountEmpresa", address);
+			localStorage.setItem("accountEmpresa", address);
 			location.replace("empresa.html");
 		}else{
 			window.alert("No existe una empresa con esa cuenta en el sistema. Por favor, registrate");
 		}
+  }
+
+// Cerrar sesion en una empresa
+function logoutEmpresa(){
+    	var address = localStorage.getItem("accountEmpresa");
+	var pss = localStorage.getItem("pssEmpresa");
+	web3.personal.lockAccount(address, pss);
+	location.replace("index.html");	
   }
 
 
@@ -184,10 +191,10 @@ function keccak256(...args) {
   function registrarEmpleado(){
     var nombre = document.getElementById("nombreEmpleado").value;
     var pss = document.getElementById("pssEmpleado").value;
-		var nEmpleado = document.getElementById("numEmpleado").value;
-		var cuentaEmpresa = localStorage.getItem("accountEmpresa");
-		var address = accounts[3];
-		// newAccount...unlock...
+    var nEmpleado = document.getElementById("numEmpleado").value;
+    var cuentaEmpresa = localStorage.getItem("accountEmpresa");
+    var address = web3.personal.newAccount(pss);
+    web3.personal.unlockAccount(address, pss, 0);
 
 		console.log("Cuenta empresa " + cuentaEmpresa);
 		plataforma.registrarEmpleado.sendTransaction(address, nombre, nEmpleado, {from: cuentaEmpresa, gas:200000},
@@ -207,7 +214,7 @@ function keccak256(...args) {
 					console.error("Error" + error);
 				}
 			});
-
+	web3.personal.lockAccount(address, pss);
   }
 
 
@@ -215,8 +222,9 @@ function keccak256(...args) {
   function registrarEmpresa(){
     var nombre = document.getElementById("nEmpresaR").value;
     var cif = document.getElementById("cEmpresaR").value;
-    var pss = document.getElementById("pEmpresaR").value
-    var address = accounts[1];
+    var pss = document.getElementById("pEmpresaR").value;
+    var address = web3.personal.newAccount(pss);
+    web3.personal.unlockAccount(address, pss, 0);
 
     plataforma.registrarEmpresa.sendTransaction(address, nombre, cif, {from: accounts[0], gas:200000},
 			function (error,result){
@@ -224,7 +232,7 @@ function keccak256(...args) {
 					var event = plataforma.EmpresaRegistrada({},{fromBlock:'latest', toBlock:'latest'},
 						function(error, result){
 							if (!error){
-								var msg = "OK! Se ha creado correctamente la cuenta " + result.args._cuenta + " para " + result.args._nombre + " con contraseña " + pss
+								var msg = "OK! Se ha creado correctamente la cuenta " + address + " para " + result.args._nombre + " con contraseña " + pss
 								 + "\n\n¡Apunta bien tu direccion para poder hacer login!";
 								console.log(msg);
 								var ask = window.confirm(msg);
@@ -239,7 +247,9 @@ function keccak256(...args) {
 					console.error("Error" + error);
 				}
 			});
+	web3.personal.lockAccount(address, pss);
   }
+
 
   // Consultar todos los empleados de una Empresa
   function consultarEmpleados(){
@@ -254,7 +264,7 @@ function keccak256(...args) {
     imprimir(msg);
   }
 
-
+// Dado un empleado, obener su saldo en tokens
 	function consultarSaldoEmpleado(){
 		var cuentaEmpresa = localStorage.getItem("accountEmpresa");
 		var cuentaEmpleado = document.getElementById("saldoEmpleado").value;
@@ -265,6 +275,7 @@ function keccak256(...args) {
 	}
 
 
+// Obtener el saldo de la propia empresa en tokens
 	function consultarSaldo(){
 		var cuentaEmpresa = localStorage.getItem("accountEmpresa");
 		var saldo = plataforma.balanceOf.call(cuentaEmpresa, {from: cuentaEmpresa, gas:30000});
@@ -275,13 +286,28 @@ function keccak256(...args) {
   // Acciones del empleado -----------------------------------------------------
   function loginEmpleado(){
     var address = document.getElementById("logEmpleado").value;
+	var pss = document.getElementById("pssEmpleado").value;
+	var ok = web3.personal.unlockAccount(address, pss, 0);
+	if(ok){
 		var exist = plataforma.existeEmpleado.call(address, {from: accounts[0], gas:30000});
 		if (exist){
-    	localStorage.setItem("accountEmpleado", address);
+    			localStorage.setItem("accountEmpleado", address);
+			localStorage.setItem("pssEmpleado", pss);
 			location.replace("empleado.html");
 		}else{
 			alert("Esa cuenta de empleado no existe en el sistema");
 		}
+	}else{
+		alert("¡Contraseña incorrecta!");
+	}
+  }
+
+
+function logoutEmpleado(){
+    	var address = localStorage.getItem("accountEmpleado");
+	var pss = localStorage.getItem("pssEmpleado");
+	web3.personal.lockAccount(address, pss);
+	location.replace("index.html");	
   }
 
   // Cargar datos del empleado en pantalla
