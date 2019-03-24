@@ -30,38 +30,40 @@ var accounts = [
 */
 
 // En caso de testnet Alastria local
-
+/*
 var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:22001"));
 web3.eth.defaultAccount = web3.eth.accounts[0];
 web3.personal.unlockAccount(web3.eth.defaultAccount, "Passw0rd");
 var accounts = web3.eth.accounts;
-
+*/
 
 
 // En caso de Alastria
-/*var web3 = new Web3(new Web3.providers.HttpProvider("http://138.4.143.82:8545"))
+var web3 = new Web3(new Web3.providers.HttpProvider("http://138.4.143.82:8545"));
 var accounts = [
-"0x994319e1b1de09aac4aa5b225a7d5cade79d04ed",
-"0x66c5a820d0e743fc7030f02aa873875c84a88f3f",
-"0x34322a678b16ce26fc0e2bdde1e3c1b666a34a66",
-"0xfc3b00c03b74ee1d94fa10e21aef4e6e9710e8a8",
-"0xf76c62480a8a6a83451eeef40d331ed179da7f89",
-"0x7b1b6d29cb425887d1bc4849d0708091bcbaf16b",
-"0x12e3bb9f253bd233e03bd696b1c558a056179b87",
-"0x59bedaa81edfd70b8e370a96cf29ee327e84e551",
-"0x9a63729158a93f502935bc322af78e4f25a5cc02",
-"0xab2c680816421e56ba3274a37c3df455fba32725"
-];
+        "0x994319e1b1de09aac4aa5b225a7d5cade79d04ed",
+        "0x66c5a820d0e743fc7030f02aa873875c84a88f3f",
+        "0x34322a678b16ce26fc0e2bdde1e3c1b666a34a66",
+        "0xfc3b00c03b74ee1d94fa10e21aef4e6e9710e8a8",
+        "0xf76c62480a8a6a83451eeef40d331ed179da7f89",
+        "0x7b1b6d29cb425887d1bc4849d0708091bcbaf16b",
+        "0x12e3bb9f253bd233e03bd696b1c558a056179b87",
+        "0x59bedaa81edfd70b8e370a96cf29ee327e84e551",
+        "0x9a63729158a93f502935bc322af78e4f25a5cc02",
+        "0xab2c680816421e56ba3274a37c3df455fba32725"
+        ];
+var indexAccount = 0; // Para ir aumentando el indice y asignando las cuentas
 var passwordAlastria = "Alumnos_2018_Q4_IKx5srvT";
-web3.eth.personal.unlockAccount(accounts[0],passwordAlastria);
-*/
+// Se desbloquea la cuenta primera
+web3.eth.personal.unlockAccount(accounts[0], passwordAlastria);
+web3.eth.defaultAccount = accounts[0];
 
 console.log("INIT ACCOUNTS\n" + accounts);
 
 // Se instancia el objeto web3 con la direccion donde esta desplegado el contrato
-var plataforma = web3.eth.contract(ABI).at("0x23ed61cfd8da3b84ff5d0d31f285b0c07051d87b");
+var plataforma = web3.eth.contract(ABI).at("0x4248ddc4e6cc68ceddc9a8b81622a6bfb8571dd7");
 
-// Se compueba que el valor es 22 y que se invoca correctamente
+// Se compueba que el valor es GLUPI para comprobar que nos deja hacer llamadas correctamente
 var test_value = plataforma.name.call({from:web3.eth.defaultAccount, gas:30000, gasPrice:0});
 console.log("DEPLOYED CONTRACT? Nombre de los tokens " + test_value);
 
@@ -126,29 +128,28 @@ function keccak256(...args) {
   // Simular el login de una empresa
   function loginEmpresa(){
     var address = document.getElementById("loginEmpresaT").value;
-	var pss = document.getElementById("pssEmpresa").value;
-	try{
-	web3.personal.unlockAccount(address, pss, 0);
-		
-		var exist = plataforma.existeEmpresa.call(address, {from: accounts[0], gas:30000});
-		if(exist.valueOf()){
-		    	localStorage.setItem("accountEmpresa", address);
-			localStorage.setItem("accountEmpresa", address);
-			location.replace("empresa.html");
-		}else{
-			window.alert("No existe una empresa con esa cuenta en el sistema. Por favor, registrate");
-		}
-	}catch(error) {
-		alert("¡Contraseña incorrecta!");
-	}
+    var pss = document.getElementById("pssEmpresa").value;
+  	try{
+    	web3.personal.unlockAccount(address, pss, 0);
+      var exist = plataforma.existeEmpresa.call(address, {from: accounts[0], gas:30000});
+      if(exist.valueOf()){
+        localStorage.setItem("accountEmpresa", address);
+        localStorage.setItem("accountEmpresa", address);
+        location.replace("empresa.html");
+      }else{
+        window.alert("No existe una empresa con esa cuenta en el sistema. Por favor, registrate");
+      }
+  	}catch(error) {
+  		alert("¡Contraseña incorrecta!");
+  	}
   }
 
-// Cerrar sesion en una empresa
-function logoutEmpresa(){
-    	var address = localStorage.getItem("accountEmpresa");
-	var pss = localStorage.getItem("pssEmpresa");
-	web3.personal.lockAccount(address, pss);
-	location.replace("index.html");	
+  // Cerrar sesion en una empresa
+  function logoutEmpresa(){
+    var address = localStorage.getItem("accountEmpresa");
+  	var pss = localStorage.getItem("pssEmpresa");
+  	web3.personal.lockAccount(address, pss);
+  	location.replace("index.html");
   }
 
 
@@ -172,28 +173,28 @@ function logoutEmpresa(){
     var address_to = document.getElementById("empleadoReceptor").value;
     var address_from = localStorage.getItem("accountEmpresa");
 
-	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-	if(saldo < cantidad){
-		alert("¡Vaya! No tienes suficientes tokens");
-	}else{
-		plataforma.emitirTokens.sendTransaction(address_to, cantidad, {from: address_from, gas:200000},
-			function (error,result){
-				if (!error){
-					var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
-						function(error, result){
-							if (!error){
-								var msg = "OK! La empresa " + result.args._from + " ha emitido " + result.args._n + " tokens al empleado " + result.args._to;
-						    imprimir(msg);
-							}else{
-								console.log("Error" + error);
-							}
-						});
-				} else {
-					console.error("Error" + error);
-				}
-			}
-		);
-	}
+  	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+  	if(saldo < cantidad){
+  		alert("¡Vaya! No tienes suficientes tokens");
+  	}else{
+  		plataforma.emitirTokens.sendTransaction(address_to, cantidad, {from: address_from, gas:200000},
+  			function (error,result){
+  				if (!error){
+  					var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
+  						function(error, result){
+  							if (!error){
+  								var msg = "OK! La empresa " + result.args._from + " ha emitido " + result.args._n + " tokens al empleado " + result.args._to;
+  						    imprimir(msg);
+  							}else{
+  								console.log("Error" + error);
+  							}
+  						});
+  				} else {
+  					console.error("Error" + error);
+  				}
+  			}
+  		);
+  	}
   }
 
 
@@ -203,7 +204,12 @@ function logoutEmpresa(){
     var pss = document.getElementById("pssEmpleado").value;
     var nEmpleado = document.getElementById("numEmpleado").value;
     var cuentaEmpresa = localStorage.getItem("accountEmpresa");
-    var address = web3.personal.newAccount(pss);
+
+    // En la testnet local de Alastria
+    //var address = web3.personal.newAccount(pss);
+    // En ganache y el nodo de la UNIR
+    var address = accounts[indexAccount]; indexAccount++;
+
     web3.personal.unlockAccount(address, pss, 0);
 
 		console.log("Cuenta empresa " + cuentaEmpresa);
@@ -233,7 +239,10 @@ function logoutEmpresa(){
     var nombre = document.getElementById("nEmpresaR").value;
     var cif = document.getElementById("cEmpresaR").value;
     var pss = document.getElementById("pEmpresaR").value;
-    var address = web3.personal.newAccount(pss);
+    // En la testnet local de Alastria
+    //var address = web3.personal.newAccount(pss);
+    // En ganache y el nodo de la UNIR
+    var address = accounts[indexAccount]; indexAccount++;
     web3.personal.unlockAccount(address, pss, 0);
 
     plataforma.registrarEmpresa.sendTransaction(address, nombre, cif, {from: accounts[0], gas:200000},
@@ -296,29 +305,31 @@ function logoutEmpresa(){
   // Acciones del empleado -----------------------------------------------------
   function loginEmpleado(){
     var address = document.getElementById("logEmpleado").value;
-	var pss = document.getElementById("pssEmpleado").value;
-	try{
-		web3.personal.unlockAccount(address, pss, 0);
-		var exist = plataforma.existeEmpleado.call(address, {from: accounts[0], gas:30000});
-			if (exist){
-	    			localStorage.setItem("accountEmpleado", address);
-				localStorage.setItem("pssEmpleado", pss);
-				location.replace("empleado.html");
-			}else{
-				alert("Esa cuenta de empleado no existe en el sistema");
-			}
-	}catch(error) {
-		alert("¡Contraseña incorrecta!");
-	}
+  	var pss = document.getElementById("pssEmpleado").value;
+  	try{
+  		web3.personal.unlockAccount(address, pss, 0);
+  		var exist = plataforma.existeEmpleado.call(address, {from: accounts[0], gas:30000});
+  			if (exist){
+  	    			localStorage.setItem("accountEmpleado", address);
+  				localStorage.setItem("pssEmpleado", pss);
+  				location.replace("empleado.html");
+  			}else{
+  				alert("Esa cuenta de empleado no existe en el sistema");
+  			}
+  	}catch(error) {
+  		alert("¡Contraseña incorrecta!");
+  	}
   }
 
 
-function logoutEmpleado(){
-    	var address = localStorage.getItem("accountEmpleado");
-	var pss = localStorage.getItem("pssEmpleado");
-	web3.personal.lockAccount(address, pss);
-	location.replace("index.html");	
+  // Cerrar la sesion de un empleado
+  function logoutEmpleado(){
+    var address = localStorage.getItem("accountEmpleado");
+  	var pss = localStorage.getItem("pssEmpleado");
+  	web3.personal.lockAccount(address, pss);
+  	location.replace("index.html");
   }
+
 
   // Cargar datos del empleado en pantalla
   function getInfoEmpleado(){
@@ -343,62 +354,58 @@ function logoutEmpleado(){
     var address_to = document.getElementById("empleadoSelect").value;
     var address_from = localStorage.getItem("accountEmpleado");
 
-	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-	if(saldo < cantidad){
-		alert("¡Vaya! No tienes suficientes tokens");
-	}else{
+  	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+  	if(saldo < cantidad){
+  		alert("¡Vaya! No tienes suficientes tokens");
+  	}else{
 
-		plataforma.transferirTokens.sendTransaction(address_to, cantidad, {from: address_from, gas:200000},
-			function (error,result){
-				if (!error){
-					var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
-						function(error, result){
-							if (!error){
-								var msg = "OK! El empleado " + result.args._from + " ha emitido " + result.args._n + " tokens al empleado " + result.args._to;
-						    		imprimir(msg);
-								var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-								document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
-							}else{
-								console.log("Error" + error);
-							}
-						});
-				} else {
-					console.error("Error" + error);
-				}
-			}
-		);
-	}
-
-		
-
+  		plataforma.transferirTokens.sendTransaction(address_to, cantidad, {from: address_from, gas:200000},
+  			function (error,result){
+  				if (!error){
+  					var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
+  						function(error, result){
+  							if (!error){
+  								var msg = "OK! El empleado " + result.args._from + " ha emitido " + result.args._n + " tokens al empleado " + result.args._to;
+  						    		imprimir(msg);
+  								var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+  								document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
+  							}else{
+  								console.log("Error" + error);
+  							}
+  						});
+  				} else {
+  					console.error("Error" + error);
+  				}
+  			}
+  		);
+	  }
   }
 
   // Canjear tokens para un empleado por unos casquitos
   function canjearTokensCasquitos(){
     var address_from = document.getElementById("addressEmpleado").innerHTML;
-	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-	if(saldo < 1){
-		alert("¡Vaya! No tienes suficientes tokens");
-	}else{
-		plataforma.canjearTokens.sendTransaction(1, {from: address_from, gas:200000},
-			function (error,result){
-					if (!error){
-						var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
-							function(error, result){
-								if (!error){
-							    		imprimir("OK! El empleado " + result.args._from + " ha canjeado 1 token a cambio de unos casquitos");
-									var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-									document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
-								}else{
-									console.log("Error" + error);
-								}
-							});
-					} else {
-						console.error("Error" + error);
-					}
-				}
-		);
-	}
+    var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+    if(saldo < 1){
+		    alert("¡Vaya! No tienes suficientes tokens");
+    }else{
+		    plataforma.canjearTokens.sendTransaction(1, {from: address_from, gas:200000},
+  			function (error,result){
+  					if (!error){
+  						var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
+  							function(error, result){
+  								if (!error){
+                    imprimir("OK! El empleado " + result.args._from + " ha canjeado 1 token a cambio de unos casquitos");
+  									var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+  									document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
+  								}else{
+  									console.log("Error" + error);
+  								}
+  							});
+              } else {
+                console.error("Error" + error);
+              }
+        });
+    }
   }
 
 
@@ -406,12 +413,12 @@ function logoutEmpleado(){
   function canjearTokensEvento(){
     var address_from = document.getElementById("addressEmpleado").innerHTML;
 
-	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-	if(saldo < 3){
-		alert("¡Vaya! No tienes suficientes tokens");
-	}else{
-		plataforma.canjearTokens.sendTransaction(3, {from: address_from, gas:200000},
-			function (error,result){
+    var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+    if(saldo < 3){
+      alert("¡Vaya! No tienes suficientes tokens");
+    }else{
+      plataforma.canjearTokens.sendTransaction(3, {from: address_from, gas:200000},
+			  function (error,result){
 					if (!error){
 						var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
 							function(error, result){
@@ -426,9 +433,8 @@ function logoutEmpleado(){
 					} else {
 						console.error("Error" + error);
 					}
-				}
-		);
-	}
+				});
+	   }
   }
 
 
@@ -455,7 +461,6 @@ function logoutEmpleado(){
 					} else {
 						console.error("Error" + error);
 					}
-				}
-		);
-	}
+				});
+	     }
   }

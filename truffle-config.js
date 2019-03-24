@@ -9,14 +9,22 @@ module.exports = {
       network_id: "*",       // Any network (default: none)
      },
 
-	localAlastria: {
+	    localAlastria: {
       host: "127.0.0.1",     // Localhost (default: none)
-      port: 22001,            // Standard Ethereum port (default: none)
+      port: 22001,            // general 1
       network_id: "*",       // Any network (default: none)
-	gasPrice:0,
-	gas: 4500000
+      gasPrice:0,
+      gas: 4500000
      },
-	
+
+     alastria{
+       host: "138.4.143.82",
+       port: 8545,
+       network_id: "*",       // Any network (default: none)
+       gasPrice:0,
+       gas: 4500000
+     }
+
   },
 
   // Set default mocha options here, use special reporters etc.
