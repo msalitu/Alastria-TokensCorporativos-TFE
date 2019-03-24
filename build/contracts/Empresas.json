@@ -23,19 +23,49 @@
           "type": "address"
         }
       ],
-      "name": "getEmpresaInfo",
+      "name": "getEmpresaNombre",
       "outputs": [
         {
           "name": "",
           "type": "string"
-        },
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_cuenta",
+          "type": "address"
+        }
+      ],
+      "name": "getEmpresaCIF",
+      "outputs": [
         {
           "name": "",
           "type": "string"
-        },
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_cuenta",
+          "type": "address"
+        }
+      ],
+      "name": "existeEmpresa",
+      "outputs": [
         {
           "name": "",
-          "type": "address"
+          "type": "bool"
         }
       ],
       "payable": false,
@@ -43,24 +73,24 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b506105c3806100206000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063457f2795146100515780639b5904a6146100bd575b600080fd5b34801561005d57600080fd5b50610066610218565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b838110156100a957808201518184015260208101905061008e565b505050509050019250505060405180910390f35b3480156100c957600080fd5b506100fe600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102a6565b6040518080602001806020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001838103835286818151815260200191508051906020019080838360005b83811015610174578082015181840152602081019050610159565b50505050905090810190601f1680156101a15780820380516001836020036101000a031916815260200191505b50838103825285818151815260200191508051906020019080838360005b838110156101da5780820151818401526020810190506101bf565b50505050905090810190601f1680156102075780820380516001836020036101000a031916815260200191505b509550505050505060405180910390f35b6060600180548060200260200160405190810160405280929190818152602001828054801561029c57602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019060010190808311610252575b5050505050905090565b60608060008060008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060030160009054906101000a900460ff16151561036e576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260138152602001807f446972656363696f6e206e6f2076616c6964610000000000000000000000000081525060200191505060405180910390fd5b6000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001016000808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206002016000808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104e75780601f106104bc576101008083540402835291602001916104e7565b820191906000526020600020905b8154815290600101906020018083116104ca57829003601f168201915b50505050509250818054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156105835780601f1061055857610100808354040283529160200191610583565b820191906000526020600020905b81548152906001019060200180831161056657829003601f168201915b5050505050915092509250925091939092505600a165627a7a723058206e7c78ce95b75160e5e558bd914b19143110c774281077fe1a76a6d86e4889660029",
-  "deployedBytecode": "0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063457f2795146100515780639b5904a6146100bd575b600080fd5b34801561005d57600080fd5b50610066610218565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b838110156100a957808201518184015260208101905061008e565b505050509050019250505060405180910390f35b3480156100c957600080fd5b506100fe600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102a6565b6040518080602001806020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001838103835286818151815260200191508051906020019080838360005b83811015610174578082015181840152602081019050610159565b50505050905090810190601f1680156101a15780820380516001836020036101000a031916815260200191505b50838103825285818151815260200191508051906020019080838360005b838110156101da5780820151818401526020810190506101bf565b50505050905090810190601f1680156102075780820380516001836020036101000a031916815260200191505b509550505050505060405180910390f35b6060600180548060200260200160405190810160405280929190818152602001828054801561029c57602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019060010190808311610252575b5050505050905090565b60608060008060008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060030160009054906101000a900460ff16151561036e576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260138152602001807f446972656363696f6e206e6f2076616c6964610000000000000000000000000081525060200191505060405180910390fd5b6000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001016000808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206002016000808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104e75780601f106104bc576101008083540402835291602001916104e7565b820191906000526020600020905b8154815290600101906020018083116104ca57829003601f168201915b50505050509250818054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156105835780601f1061055857610100808354040283529160200191610583565b820191906000526020600020905b81548152906001019060200180831161056657829003601f168201915b5050505050915092509250925091939092505600a165627a7a723058206e7c78ce95b75160e5e558bd914b19143110c774281077fe1a76a6d86e4889660029",
-  "sourceMap": "26:1241:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:1241:1;;;;;;;",
-  "deployedSourceMap": "26:1241:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;802:94;;8:9:-1;5:2;;;30:1;27;20:12;5:2;802:94:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;802:94:1;;;;;;;;;;;;;;;;;1008:252;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1008:252:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1008:252:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1008:252:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;802:94;849:9;877:12;870:19;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;802:94;:::o;1008:252::-;1070:6;1078;1086:7;1112:8;:17;1121:7;1112:17;;;;;;;;;;;;;;;:25;;;;;;;;;;;;1104:57;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1179:8;:17;1188:7;1179:17;;;;;;;;;;;;;;;:24;;1205:8;:17;1214:7;1205:17;;;;;;;;;;;;;;;:21;;1228:8;:17;1237:7;1228:17;;;;;;;;;;;;;;;:24;;;;;;;;;;;;1171:82;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1008:252;;;;;:::o",
-  "source": "pragma solidity ^0.4.25;\n\ncontract Empresas {\n    \n    struct Empresa {\n      address cuenta;\n      string nombre;\n      string cif;\n      bool isValue; // para comprobar que existe la empresa\n    }\n    \n    // Para poder acceder rapidamente a la informacion de una empresa a partir de su direccion\n    mapping(address => Empresa) empresas;\n    // Para obtener un listado por el que iterar con todas las direcciones de las empresas existentes\n    address[] empresasList;\n    \n    \n    /*\n    * Para comprobar que el msg.sender es una empresa existente en el sistema\n    */\n    modifier esEmpresaValida(address _cuenta){\n        if(empresas[_cuenta].isValue){\n            _;\n        }\n    }\n    \n    \n    /*\n    * Para obtener una lista con todas las direcciones de empresas en la que iterar\n    */\n    function listarEmpresas() public view returns (address[]) {\n        return empresasList;\n    }\n    \n    \n    /*\n    * Para obtener la informacion completa de una empresa a partir de su direccion\n    */\n    function getEmpresaInfo(address _cuenta) public view returns (string, string, address){\n        require(empresas[_cuenta].isValue, \"Direccion no valida\");\n        return (empresas[_cuenta].nombre, empresas[_cuenta].cif, empresas[_cuenta].cuenta);\n    }\n    \n}",
-  "sourcePath": "/home/maria/truffle-tfe/contracts/Empresas.sol",
+  "bytecode": "0x608060405234801561001057600080fd5b5061062c806100206000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806327be489014610067578063457f27951461012357806357bfcbd51461018f578063df100f64146101ea575b600080fd5b34801561007357600080fd5b506100a8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102a6565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100e85780820151818401526020810190506100cd565b50505050905090810190601f1680156101155780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561012f57600080fd5b506101386103e0565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561017b578082015181840152602081019050610160565b505050509050019250505060405180910390f35b34801561019b57600080fd5b506101d0600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061046e565b604051808215151515815260200191505060405180910390f35b3480156101f657600080fd5b5061022b600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104c6565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561026b578082015181840152602081019050610250565b50505050905090810190601f1680156102985780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6060816000808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060030160009054906101000a900460ff16156103da576000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103d25780601f106103a7576101008083540402835291602001916103d2565b820191906000526020600020905b8154815290600101906020018083116103b557829003601f168201915b505050505091505b50919050565b6060600180548060200260200160405190810160405280929190818152602001828054801561046457602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001906001019080831161041a575b5050505050905090565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060030160009054906101000a900460ff169050919050565b6060816000808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060030160009054906101000a900460ff16156105fa576000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206002018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156105f25780601f106105c7576101008083540402835291602001916105f2565b820191906000526020600020905b8154815290600101906020018083116105d557829003601f168201915b505050505091505b509190505600a165627a7a7230582036d6cadca5ed1febfba0cfd8952dabd2c2d4373a3cfb1fc065660f16ee34787f0029",
+  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806327be489014610067578063457f27951461012357806357bfcbd51461018f578063df100f64146101ea575b600080fd5b34801561007357600080fd5b506100a8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102a6565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100e85780820151818401526020810190506100cd565b50505050905090810190601f1680156101155780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561012f57600080fd5b506101386103e0565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561017b578082015181840152602081019050610160565b505050509050019250505060405180910390f35b34801561019b57600080fd5b506101d0600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061046e565b604051808215151515815260200191505060405180910390f35b3480156101f657600080fd5b5061022b600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104c6565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561026b578082015181840152602081019050610250565b50505050905090810190601f1680156102985780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6060816000808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060030160009054906101000a900460ff16156103da576000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103d25780601f106103a7576101008083540402835291602001916103d2565b820191906000526020600020905b8154815290600101906020018083116103b557829003601f168201915b505050505091505b50919050565b6060600180548060200260200160405190810160405280929190818152602001828054801561046457602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001906001019080831161041a575b5050505050905090565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060030160009054906101000a900460ff169050919050565b6060816000808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060030160009054906101000a900460ff16156105fa576000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206002018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156105f25780601f106105c7576101008083540402835291602001916105f2565b820191906000526020600020905b8154815290600101906020018083116105d557829003601f168201915b505050505091505b509190505600a165627a7a7230582036d6cadca5ed1febfba0cfd8952dabd2c2d4373a3cfb1fc065660f16ee34787f0029",
+  "sourceMap": "26:1620:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:1620:1;;;;;;;",
+  "deployedSourceMap": "26:1620:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1010:146;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1010:146:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1010:146:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;802:94;;8:9:-1;5:2;;;30:1;27;20:12;5:2;802:94:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;802:94:1;;;;;;;;;;;;;;;;;1522:117;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1522:117:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1267:140;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1267:140:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1267:140:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1010:146;1099:6;1081:7;631:8;:17;640:7;631:17;;;;;;;;;;;;;;;:25;;;;;;;;;;;;628:55;;;1124:8;:17;1133:7;1124:17;;;;;;;;;;;;;;;:24;;1116:33;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;628:55;1010:146;;;;:::o;802:94::-;849:9;877:12;870:19;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;802:94;:::o;1522:117::-;1583:4;1606:8;:17;1615:7;1606:17;;;;;;;;;;;;;;;:25;;;;;;;;;;;;1598:34;;1522:117;;;:::o;1267:140::-;1353:6;1335:7;631:8;:17;640:7;631:17;;;;;;;;;;;;;;;:25;;;;;;;;;;;;628:55;;;1378:8;:17;1387:7;1378:17;;;;;;;;;;;;;;;:21;;1370:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;628:55;1267:140;;;;:::o",
+  "source": "pragma solidity ^0.4.25;\n\ncontract Empresas {\n    \n    struct Empresa {\n      address cuenta;\n      string nombre;\n      string cif;\n      bool isValue; // para comprobar que existe la empresa\n    }\n    \n    // Para poder acceder rapidamente a la informacion de una empresa a partir de su direccion\n    mapping(address => Empresa) empresas;\n    // Para obtener un listado por el que iterar con todas las direcciones de las empresas existentes\n    address[] empresasList;\n    \n    \n    /*\n    * Para comprobar que el msg.sender es una empresa existente en el sistema\n    */\n    modifier esEmpresaValida(address _cuenta){\n        if(empresas[_cuenta].isValue){\n            _;\n        }\n    }\n    \n    \n    /*\n    * Para obtener una lista con todas las direcciones de empresas en la que iterar\n    */\n    function listarEmpresas() public view returns (address[]) {\n        return empresasList;\n    }\n    \n    \n    /*\n    * Para obtener la informacion del nombre de una empresa a partir de su direccion\n    */\n    function getEmpresaNombre(address _cuenta) public view esEmpresaValida(_cuenta) returns (string){\n        return (empresas[_cuenta].nombre);\n    }\n    \n    \n    /*\n    * Para obtener la informacion del cif de una empresa a partir de su direccion\n    */\n    function getEmpresaCIF(address _cuenta) public view esEmpresaValida(_cuenta) returns (string){\n        return (empresas[_cuenta].cif);\n    }\n    \n    \n     /*\n    * Comprobar si existe una empresa en el sistema a partir de una direccion valida\n    */\n    function existeEmpresa(address _cuenta) public view returns (bool){\n        return (empresas[_cuenta].isValue);\n    }\n    \n}",
+  "sourcePath": "/home/maria/Alastria-TokensCorporativos-TFE/contracts/Empresas.sol",
   "ast": {
-    "absolutePath": "/home/maria/truffle-tfe/contracts/Empresas.sol",
+    "absolutePath": "/home/maria/Alastria-TokensCorporativos-TFE/contracts/Empresas.sol",
     "exportedSymbols": {
       "Empresas": [
-        150
+        223
       ]
     },
-    "id": 151,
+    "id": 224,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 78,
+        "id": 137,
         "literals": [
           "solidity",
           "^",
@@ -76,23 +106,23 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 150,
+        "id": 223,
         "linearizedBaseContracts": [
-          150
+          223
         ],
         "name": "Empresas",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "Empresas.Empresa",
-            "id": 87,
+            "id": 146,
             "members": [
               {
                 "constant": false,
-                "id": 80,
+                "id": 139,
                 "name": "cuenta",
                 "nodeType": "VariableDeclaration",
-                "scope": 87,
+                "scope": 146,
                 "src": "78:14:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -101,7 +131,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 79,
+                  "id": 138,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "78:7:1",
@@ -115,10 +145,10 @@
               },
               {
                 "constant": false,
-                "id": 82,
+                "id": 141,
                 "name": "nombre",
                 "nodeType": "VariableDeclaration",
-                "scope": 87,
+                "scope": 146,
                 "src": "100:13:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -127,7 +157,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 81,
+                  "id": 140,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "100:6:1",
@@ -141,10 +171,10 @@
               },
               {
                 "constant": false,
-                "id": 84,
+                "id": 143,
                 "name": "cif",
                 "nodeType": "VariableDeclaration",
-                "scope": 87,
+                "scope": 146,
                 "src": "121:10:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -153,7 +183,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 83,
+                  "id": 142,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "121:6:1",
@@ -167,10 +197,10 @@
               },
               {
                 "constant": false,
-                "id": 86,
+                "id": 145,
                 "name": "isValue",
                 "nodeType": "VariableDeclaration",
-                "scope": 87,
+                "scope": 146,
                 "src": "139:12:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -179,7 +209,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 85,
+                  "id": 144,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "139:4:1",
@@ -194,27 +224,27 @@
             ],
             "name": "Empresa",
             "nodeType": "StructDefinition",
-            "scope": 150,
+            "scope": 223,
             "src": "55:143:1",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 91,
+            "id": 150,
             "name": "empresas",
             "nodeType": "VariableDeclaration",
-            "scope": 150,
+            "scope": 223,
             "src": "303:36:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
               "typeString": "mapping(address => struct Empresas.Empresa)"
             },
             "typeName": {
-              "id": 90,
+              "id": 149,
               "keyType": {
-                "id": 88,
+                "id": 147,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "311:7:1",
@@ -226,18 +256,18 @@
               "nodeType": "Mapping",
               "src": "303:27:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
                 "typeString": "mapping(address => struct Empresas.Empresa)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 89,
+                "id": 148,
                 "name": "Empresa",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 87,
+                "referencedDeclaration": 146,
                 "src": "322:7:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Empresa_$87_storage_ptr",
+                  "typeIdentifier": "t_struct$_Empresa_$146_storage_ptr",
                   "typeString": "struct Empresas.Empresa"
                 }
               }
@@ -247,10 +277,10 @@
           },
           {
             "constant": false,
-            "id": 94,
+            "id": 153,
             "name": "empresasList",
             "nodeType": "VariableDeclaration",
-            "scope": 150,
+            "scope": 223,
             "src": "447:22:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -260,7 +290,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 92,
+                "id": 151,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "447:7:1",
@@ -269,7 +299,7 @@
                   "typeString": "address"
                 }
               },
-              "id": 93,
+              "id": 152,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "447:9:1",
@@ -283,7 +313,7 @@
           },
           {
             "body": {
-              "id": 105,
+              "id": 164,
               "nodeType": "Block",
               "src": "618:71:1",
               "statements": [
@@ -294,25 +324,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 98,
+                        "id": 157,
                         "name": "empresas",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 91,
+                        "referencedDeclaration": 150,
                         "src": "631:8:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
                           "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
                         }
                       },
-                      "id": 100,
+                      "id": 159,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 99,
+                        "id": 158,
                         "name": "_cuenta",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 96,
+                        "referencedDeclaration": 155,
                         "src": "640:7:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -326,18 +356,18 @@
                       "nodeType": "IndexAccess",
                       "src": "631:17:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Empresa_$87_storage",
+                        "typeIdentifier": "t_struct$_Empresa_$146_storage",
                         "typeString": "struct Empresas.Empresa storage ref"
                       }
                     },
-                    "id": 101,
+                    "id": 160,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "isValue",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 86,
+                    "referencedDeclaration": 145,
                     "src": "631:25:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
@@ -345,16 +375,16 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 104,
+                  "id": 163,
                   "nodeType": "IfStatement",
                   "src": "628:55:1",
                   "trueBody": {
-                    "id": 103,
+                    "id": 162,
                     "nodeType": "Block",
                     "src": "657:26:1",
                     "statements": [
                       {
-                        "id": 102,
+                        "id": 161,
                         "nodeType": "PlaceholderStatement",
                         "src": "671:1:1"
                       }
@@ -364,19 +394,19 @@
               ]
             },
             "documentation": null,
-            "id": 106,
+            "id": 165,
             "name": "esEmpresaValida",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 97,
+              "id": 156,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 96,
+                  "id": 155,
                   "name": "_cuenta",
                   "nodeType": "VariableDeclaration",
-                  "scope": 106,
+                  "scope": 165,
                   "src": "602:15:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -385,7 +415,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 95,
+                    "id": 154,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "602:7:1",
@@ -405,33 +435,33 @@
           },
           {
             "body": {
-              "id": 114,
+              "id": 173,
               "nodeType": "Block",
               "src": "860:36:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 112,
+                    "id": 171,
                     "name": "empresasList",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 94,
+                    "referencedDeclaration": 153,
                     "src": "877:12:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage",
                       "typeString": "address[] storage ref"
                     }
                   },
-                  "functionReturnParameters": 111,
-                  "id": 113,
+                  "functionReturnParameters": 170,
+                  "id": 172,
                   "nodeType": "Return",
                   "src": "870:19:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 115,
+            "id": 174,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -439,22 +469,22 @@
             "name": "listarEmpresas",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 107,
+              "id": 166,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "825:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 111,
+              "id": 170,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 110,
+                  "id": 169,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 115,
+                  "scope": 174,
                   "src": "849:9:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -464,7 +494,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 108,
+                      "id": 167,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "849:7:1",
@@ -473,7 +503,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 109,
+                    "id": 168,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "849:9:1",
@@ -488,7 +518,7 @@
               ],
               "src": "848:11:1"
             },
-            "scope": 150,
+            "scope": 223,
             "src": "802:94:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -496,132 +526,10 @@
           },
           {
             "body": {
-              "id": 148,
+              "id": 190,
               "nodeType": "Block",
-              "src": "1094:166:1",
+              "src": "1106:50:1",
               "statements": [
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "baseExpression": {
-                            "argumentTypes": null,
-                            "id": 127,
-                            "name": "empresas",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 91,
-                            "src": "1112:8:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
-                              "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
-                            }
-                          },
-                          "id": 129,
-                          "indexExpression": {
-                            "argumentTypes": null,
-                            "id": 128,
-                            "name": "_cuenta",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 117,
-                            "src": "1121:7:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_address",
-                              "typeString": "address"
-                            }
-                          },
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "nodeType": "IndexAccess",
-                          "src": "1112:17:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Empresa_$87_storage",
-                            "typeString": "struct Empresas.Empresa storage ref"
-                          }
-                        },
-                        "id": 130,
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "isValue",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": 86,
-                        "src": "1112:25:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "hexValue": "446972656363696f6e206e6f2076616c696461",
-                        "id": 131,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": true,
-                        "kind": "string",
-                        "lValueRequested": false,
-                        "nodeType": "Literal",
-                        "src": "1139:21:1",
-                        "subdenomination": null,
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_stringliteral_13100f71f4b0ec975e7183e9a53530ccca0bf45d642a9d6b06b884495d68892b",
-                          "typeString": "literal_string \"Direccion no valida\""
-                        },
-                        "value": "Direccion no valida"
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
-                        },
-                        {
-                          "typeIdentifier": "t_stringliteral_13100f71f4b0ec975e7183e9a53530ccca0bf45d642a9d6b06b884495d68892b",
-                          "typeString": "literal_string \"Direccion no valida\""
-                        }
-                      ],
-                      "id": 126,
-                      "name": "require",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1016,
-                        1017
-                      ],
-                      "referencedDeclaration": 1017,
-                      "src": "1104:7:1",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
-                        "typeString": "function (bool,string memory) pure"
-                      }
-                    },
-                    "id": 132,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "kind": "functionCall",
-                    "lValueRequested": false,
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "1104:57:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$__$",
-                      "typeString": "tuple()"
-                    }
-                  },
-                  "id": 133,
-                  "nodeType": "ExpressionStatement",
-                  "src": "1104:57:1"
-                },
                 {
                   "expression": {
                     "argumentTypes": null,
@@ -632,26 +540,26 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 134,
+                            "id": 184,
                             "name": "empresas",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 91,
-                            "src": "1179:8:1",
+                            "referencedDeclaration": 150,
+                            "src": "1124:8:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
                               "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
                             }
                           },
-                          "id": 136,
+                          "id": 186,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 135,
+                            "id": 185,
                             "name": "_cuenta",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 117,
-                            "src": "1188:7:1",
+                            "referencedDeclaration": 176,
+                            "src": "1133:7:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -662,178 +570,470 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "IndexAccess",
-                          "src": "1179:17:1",
+                          "src": "1124:17:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Empresa_$87_storage",
+                            "typeIdentifier": "t_struct$_Empresa_$146_storage",
                             "typeString": "struct Empresas.Empresa storage ref"
                           }
                         },
-                        "id": 137,
+                        "id": 187,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "nombre",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 82,
-                        "src": "1179:24:1",
+                        "referencedDeclaration": 141,
+                        "src": "1124:24:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
                           "typeString": "string storage ref"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "baseExpression": {
-                            "argumentTypes": null,
-                            "id": 138,
-                            "name": "empresas",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 91,
-                            "src": "1205:8:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
-                              "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
-                            }
-                          },
-                          "id": 140,
-                          "indexExpression": {
-                            "argumentTypes": null,
-                            "id": 139,
-                            "name": "_cuenta",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 117,
-                            "src": "1214:7:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_address",
-                              "typeString": "address"
-                            }
-                          },
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "nodeType": "IndexAccess",
-                          "src": "1205:17:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Empresa_$87_storage",
-                            "typeString": "struct Empresas.Empresa storage ref"
-                          }
-                        },
-                        "id": 141,
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "cif",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": 84,
-                        "src": "1205:21:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_string_storage",
-                          "typeString": "string storage ref"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "baseExpression": {
-                            "argumentTypes": null,
-                            "id": 142,
-                            "name": "empresas",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 91,
-                            "src": "1228:8:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
-                              "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
-                            }
-                          },
-                          "id": 144,
-                          "indexExpression": {
-                            "argumentTypes": null,
-                            "id": 143,
-                            "name": "_cuenta",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 117,
-                            "src": "1237:7:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_address",
-                              "typeString": "address"
-                            }
-                          },
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "nodeType": "IndexAccess",
-                          "src": "1228:17:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Empresa_$87_storage",
-                            "typeString": "struct Empresas.Empresa storage ref"
-                          }
-                        },
-                        "id": 145,
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "cuenta",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": 80,
-                        "src": "1228:24:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
                         }
                       }
                     ],
-                    "id": 146,
+                    "id": 188,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "TupleExpression",
-                    "src": "1178:75:1",
+                    "src": "1123:26:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$_t_string_storage_$_t_string_storage_$_t_address_$",
-                      "typeString": "tuple(string storage ref,string storage ref,address)"
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
                     }
                   },
-                  "functionReturnParameters": 125,
-                  "id": 147,
+                  "functionReturnParameters": 183,
+                  "id": 189,
                   "nodeType": "Return",
-                  "src": "1171:82:1"
+                  "src": "1116:33:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 149,
+            "id": 191,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 179,
+                    "name": "_cuenta",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 176,
+                    "src": "1081:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 180,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 178,
+                  "name": "esEmpresaValida",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 165,
+                  "src": "1065:15:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_address_$",
+                    "typeString": "modifier (address)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1065:24:1"
+              }
+            ],
+            "name": "getEmpresaNombre",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 177,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 176,
+                  "name": "_cuenta",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 191,
+                  "src": "1036:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 175,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1036:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1035:17:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 183,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 182,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 191,
+                  "src": "1099:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 181,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1099:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1098:8:1"
+            },
+            "scope": 223,
+            "src": "1010:146:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 207,
+              "nodeType": "Block",
+              "src": "1360:47:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 201,
+                            "name": "empresas",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 150,
+                            "src": "1378:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
+                              "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
+                            }
+                          },
+                          "id": 203,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 202,
+                            "name": "_cuenta",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 193,
+                            "src": "1387:7:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1378:17:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Empresa_$146_storage",
+                            "typeString": "struct Empresas.Empresa storage ref"
+                          }
+                        },
+                        "id": 204,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "cif",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 143,
+                        "src": "1378:21:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      }
+                    ],
+                    "id": 205,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "1377:23:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 200,
+                  "id": 206,
+                  "nodeType": "Return",
+                  "src": "1370:30:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 208,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 196,
+                    "name": "_cuenta",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 193,
+                    "src": "1335:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 197,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 195,
+                  "name": "esEmpresaValida",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 165,
+                  "src": "1319:15:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_address_$",
+                    "typeString": "modifier (address)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1319:24:1"
+              }
+            ],
+            "name": "getEmpresaCIF",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 194,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 193,
+                  "name": "_cuenta",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 208,
+                  "src": "1290:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 192,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1290:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1289:17:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 200,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 199,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 208,
+                  "src": "1353:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 198,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1353:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1352:8:1"
+            },
+            "scope": 223,
+            "src": "1267:140:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 221,
+              "nodeType": "Block",
+              "src": "1588:51:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 215,
+                            "name": "empresas",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 150,
+                            "src": "1606:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
+                              "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
+                            }
+                          },
+                          "id": 217,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 216,
+                            "name": "_cuenta",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 210,
+                            "src": "1615:7:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1606:17:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Empresa_$146_storage",
+                            "typeString": "struct Empresas.Empresa storage ref"
+                          }
+                        },
+                        "id": 218,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "isValue",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 145,
+                        "src": "1606:25:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "id": 219,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "1605:27:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 214,
+                  "id": 220,
+                  "nodeType": "Return",
+                  "src": "1598:34:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 222,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
             "modifiers": [],
-            "name": "getEmpresaInfo",
+            "name": "existeEmpresa",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 118,
+              "id": 211,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 117,
+                  "id": 210,
                   "name": "_cuenta",
                   "nodeType": "VariableDeclaration",
-                  "scope": 149,
-                  "src": "1032:15:1",
+                  "scope": 222,
+                  "src": "1545:15:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -841,10 +1041,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 116,
+                    "id": 209,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1032:7:1",
+                    "src": "1545:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -854,119 +1054,67 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1031:17:1"
+              "src": "1544:17:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 125,
+              "id": 214,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 120,
+                  "id": 213,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 149,
-                  "src": "1070:6:1",
+                  "scope": 222,
+                  "src": "1583:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_string_memory_ptr",
-                    "typeString": "string"
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 119,
-                    "name": "string",
+                    "id": 212,
+                    "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1070:6:1",
+                    "src": "1583:4:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_string_storage_ptr",
-                      "typeString": "string"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 122,
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 149,
-                  "src": "1078:6:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_string_memory_ptr",
-                    "typeString": "string"
-                  },
-                  "typeName": {
-                    "id": 121,
-                    "name": "string",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1078:6:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_string_storage_ptr",
-                      "typeString": "string"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 124,
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 149,
-                  "src": "1086:7:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 123,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1086:7:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "1069:25:1"
+              "src": "1582:6:1"
             },
-            "scope": 150,
-            "src": "1008:252:1",
+            "scope": 223,
+            "src": "1522:117:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 151,
-        "src": "26:1241:1"
+        "scope": 224,
+        "src": "26:1620:1"
       }
     ],
-    "src": "0:1267:1"
+    "src": "0:1646:1"
   },
   "legacyAST": {
-    "absolutePath": "/home/maria/truffle-tfe/contracts/Empresas.sol",
+    "absolutePath": "/home/maria/Alastria-TokensCorporativos-TFE/contracts/Empresas.sol",
     "exportedSymbols": {
       "Empresas": [
-        150
+        223
       ]
     },
-    "id": 151,
+    "id": 224,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 78,
+        "id": 137,
         "literals": [
           "solidity",
           "^",
@@ -982,23 +1130,23 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 150,
+        "id": 223,
         "linearizedBaseContracts": [
-          150
+          223
         ],
         "name": "Empresas",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "Empresas.Empresa",
-            "id": 87,
+            "id": 146,
             "members": [
               {
                 "constant": false,
-                "id": 80,
+                "id": 139,
                 "name": "cuenta",
                 "nodeType": "VariableDeclaration",
-                "scope": 87,
+                "scope": 146,
                 "src": "78:14:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1007,7 +1155,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 79,
+                  "id": 138,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "78:7:1",
@@ -1021,10 +1169,10 @@
               },
               {
                 "constant": false,
-                "id": 82,
+                "id": 141,
                 "name": "nombre",
                 "nodeType": "VariableDeclaration",
-                "scope": 87,
+                "scope": 146,
                 "src": "100:13:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1033,7 +1181,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 81,
+                  "id": 140,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "100:6:1",
@@ -1047,10 +1195,10 @@
               },
               {
                 "constant": false,
-                "id": 84,
+                "id": 143,
                 "name": "cif",
                 "nodeType": "VariableDeclaration",
-                "scope": 87,
+                "scope": 146,
                 "src": "121:10:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1059,7 +1207,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 83,
+                  "id": 142,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "121:6:1",
@@ -1073,10 +1221,10 @@
               },
               {
                 "constant": false,
-                "id": 86,
+                "id": 145,
                 "name": "isValue",
                 "nodeType": "VariableDeclaration",
-                "scope": 87,
+                "scope": 146,
                 "src": "139:12:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1085,7 +1233,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 85,
+                  "id": 144,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "139:4:1",
@@ -1100,27 +1248,27 @@
             ],
             "name": "Empresa",
             "nodeType": "StructDefinition",
-            "scope": 150,
+            "scope": 223,
             "src": "55:143:1",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 91,
+            "id": 150,
             "name": "empresas",
             "nodeType": "VariableDeclaration",
-            "scope": 150,
+            "scope": 223,
             "src": "303:36:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
               "typeString": "mapping(address => struct Empresas.Empresa)"
             },
             "typeName": {
-              "id": 90,
+              "id": 149,
               "keyType": {
-                "id": 88,
+                "id": 147,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "311:7:1",
@@ -1132,18 +1280,18 @@
               "nodeType": "Mapping",
               "src": "303:27:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
                 "typeString": "mapping(address => struct Empresas.Empresa)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 89,
+                "id": 148,
                 "name": "Empresa",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 87,
+                "referencedDeclaration": 146,
                 "src": "322:7:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Empresa_$87_storage_ptr",
+                  "typeIdentifier": "t_struct$_Empresa_$146_storage_ptr",
                   "typeString": "struct Empresas.Empresa"
                 }
               }
@@ -1153,10 +1301,10 @@
           },
           {
             "constant": false,
-            "id": 94,
+            "id": 153,
             "name": "empresasList",
             "nodeType": "VariableDeclaration",
-            "scope": 150,
+            "scope": 223,
             "src": "447:22:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1166,7 +1314,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 92,
+                "id": 151,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "447:7:1",
@@ -1175,7 +1323,7 @@
                   "typeString": "address"
                 }
               },
-              "id": 93,
+              "id": 152,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "447:9:1",
@@ -1189,7 +1337,7 @@
           },
           {
             "body": {
-              "id": 105,
+              "id": 164,
               "nodeType": "Block",
               "src": "618:71:1",
               "statements": [
@@ -1200,25 +1348,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 98,
+                        "id": 157,
                         "name": "empresas",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 91,
+                        "referencedDeclaration": 150,
                         "src": "631:8:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
                           "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
                         }
                       },
-                      "id": 100,
+                      "id": 159,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 99,
+                        "id": 158,
                         "name": "_cuenta",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 96,
+                        "referencedDeclaration": 155,
                         "src": "640:7:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1232,18 +1380,18 @@
                       "nodeType": "IndexAccess",
                       "src": "631:17:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Empresa_$87_storage",
+                        "typeIdentifier": "t_struct$_Empresa_$146_storage",
                         "typeString": "struct Empresas.Empresa storage ref"
                       }
                     },
-                    "id": 101,
+                    "id": 160,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "isValue",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 86,
+                    "referencedDeclaration": 145,
                     "src": "631:25:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
@@ -1251,16 +1399,16 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 104,
+                  "id": 163,
                   "nodeType": "IfStatement",
                   "src": "628:55:1",
                   "trueBody": {
-                    "id": 103,
+                    "id": 162,
                     "nodeType": "Block",
                     "src": "657:26:1",
                     "statements": [
                       {
-                        "id": 102,
+                        "id": 161,
                         "nodeType": "PlaceholderStatement",
                         "src": "671:1:1"
                       }
@@ -1270,19 +1418,19 @@
               ]
             },
             "documentation": null,
-            "id": 106,
+            "id": 165,
             "name": "esEmpresaValida",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 97,
+              "id": 156,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 96,
+                  "id": 155,
                   "name": "_cuenta",
                   "nodeType": "VariableDeclaration",
-                  "scope": 106,
+                  "scope": 165,
                   "src": "602:15:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1291,7 +1439,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 95,
+                    "id": 154,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "602:7:1",
@@ -1311,33 +1459,33 @@
           },
           {
             "body": {
-              "id": 114,
+              "id": 173,
               "nodeType": "Block",
               "src": "860:36:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 112,
+                    "id": 171,
                     "name": "empresasList",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 94,
+                    "referencedDeclaration": 153,
                     "src": "877:12:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage",
                       "typeString": "address[] storage ref"
                     }
                   },
-                  "functionReturnParameters": 111,
-                  "id": 113,
+                  "functionReturnParameters": 170,
+                  "id": 172,
                   "nodeType": "Return",
                   "src": "870:19:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 115,
+            "id": 174,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1345,22 +1493,22 @@
             "name": "listarEmpresas",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 107,
+              "id": 166,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "825:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 111,
+              "id": 170,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 110,
+                  "id": 169,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 115,
+                  "scope": 174,
                   "src": "849:9:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1370,7 +1518,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 108,
+                      "id": 167,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "849:7:1",
@@ -1379,7 +1527,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 109,
+                    "id": 168,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "849:9:1",
@@ -1394,7 +1542,7 @@
               ],
               "src": "848:11:1"
             },
-            "scope": 150,
+            "scope": 223,
             "src": "802:94:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -1402,132 +1550,10 @@
           },
           {
             "body": {
-              "id": 148,
+              "id": 190,
               "nodeType": "Block",
-              "src": "1094:166:1",
+              "src": "1106:50:1",
               "statements": [
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "baseExpression": {
-                            "argumentTypes": null,
-                            "id": 127,
-                            "name": "empresas",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 91,
-                            "src": "1112:8:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
-                              "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
-                            }
-                          },
-                          "id": 129,
-                          "indexExpression": {
-                            "argumentTypes": null,
-                            "id": 128,
-                            "name": "_cuenta",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 117,
-                            "src": "1121:7:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_address",
-                              "typeString": "address"
-                            }
-                          },
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "nodeType": "IndexAccess",
-                          "src": "1112:17:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Empresa_$87_storage",
-                            "typeString": "struct Empresas.Empresa storage ref"
-                          }
-                        },
-                        "id": 130,
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "isValue",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": 86,
-                        "src": "1112:25:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "hexValue": "446972656363696f6e206e6f2076616c696461",
-                        "id": 131,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": true,
-                        "kind": "string",
-                        "lValueRequested": false,
-                        "nodeType": "Literal",
-                        "src": "1139:21:1",
-                        "subdenomination": null,
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_stringliteral_13100f71f4b0ec975e7183e9a53530ccca0bf45d642a9d6b06b884495d68892b",
-                          "typeString": "literal_string \"Direccion no valida\""
-                        },
-                        "value": "Direccion no valida"
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
-                        },
-                        {
-                          "typeIdentifier": "t_stringliteral_13100f71f4b0ec975e7183e9a53530ccca0bf45d642a9d6b06b884495d68892b",
-                          "typeString": "literal_string \"Direccion no valida\""
-                        }
-                      ],
-                      "id": 126,
-                      "name": "require",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1016,
-                        1017
-                      ],
-                      "referencedDeclaration": 1017,
-                      "src": "1104:7:1",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
-                        "typeString": "function (bool,string memory) pure"
-                      }
-                    },
-                    "id": 132,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "kind": "functionCall",
-                    "lValueRequested": false,
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "1104:57:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$__$",
-                      "typeString": "tuple()"
-                    }
-                  },
-                  "id": 133,
-                  "nodeType": "ExpressionStatement",
-                  "src": "1104:57:1"
-                },
                 {
                   "expression": {
                     "argumentTypes": null,
@@ -1538,26 +1564,26 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 134,
+                            "id": 184,
                             "name": "empresas",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 91,
-                            "src": "1179:8:1",
+                            "referencedDeclaration": 150,
+                            "src": "1124:8:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
                               "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
                             }
                           },
-                          "id": 136,
+                          "id": 186,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 135,
+                            "id": 185,
                             "name": "_cuenta",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 117,
-                            "src": "1188:7:1",
+                            "referencedDeclaration": 176,
+                            "src": "1133:7:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -1568,178 +1594,470 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "IndexAccess",
-                          "src": "1179:17:1",
+                          "src": "1124:17:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Empresa_$87_storage",
+                            "typeIdentifier": "t_struct$_Empresa_$146_storage",
                             "typeString": "struct Empresas.Empresa storage ref"
                           }
                         },
-                        "id": 137,
+                        "id": 187,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "nombre",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 82,
-                        "src": "1179:24:1",
+                        "referencedDeclaration": 141,
+                        "src": "1124:24:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
                           "typeString": "string storage ref"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "baseExpression": {
-                            "argumentTypes": null,
-                            "id": 138,
-                            "name": "empresas",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 91,
-                            "src": "1205:8:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
-                              "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
-                            }
-                          },
-                          "id": 140,
-                          "indexExpression": {
-                            "argumentTypes": null,
-                            "id": 139,
-                            "name": "_cuenta",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 117,
-                            "src": "1214:7:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_address",
-                              "typeString": "address"
-                            }
-                          },
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "nodeType": "IndexAccess",
-                          "src": "1205:17:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Empresa_$87_storage",
-                            "typeString": "struct Empresas.Empresa storage ref"
-                          }
-                        },
-                        "id": 141,
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "cif",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": 84,
-                        "src": "1205:21:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_string_storage",
-                          "typeString": "string storage ref"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "baseExpression": {
-                            "argumentTypes": null,
-                            "id": 142,
-                            "name": "empresas",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 91,
-                            "src": "1228:8:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$87_storage_$",
-                              "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
-                            }
-                          },
-                          "id": 144,
-                          "indexExpression": {
-                            "argumentTypes": null,
-                            "id": 143,
-                            "name": "_cuenta",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 117,
-                            "src": "1237:7:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_address",
-                              "typeString": "address"
-                            }
-                          },
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "nodeType": "IndexAccess",
-                          "src": "1228:17:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Empresa_$87_storage",
-                            "typeString": "struct Empresas.Empresa storage ref"
-                          }
-                        },
-                        "id": 145,
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "cuenta",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": 80,
-                        "src": "1228:24:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
                         }
                       }
                     ],
-                    "id": 146,
+                    "id": 188,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "TupleExpression",
-                    "src": "1178:75:1",
+                    "src": "1123:26:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$_t_string_storage_$_t_string_storage_$_t_address_$",
-                      "typeString": "tuple(string storage ref,string storage ref,address)"
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
                     }
                   },
-                  "functionReturnParameters": 125,
-                  "id": 147,
+                  "functionReturnParameters": 183,
+                  "id": 189,
                   "nodeType": "Return",
-                  "src": "1171:82:1"
+                  "src": "1116:33:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 149,
+            "id": 191,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 179,
+                    "name": "_cuenta",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 176,
+                    "src": "1081:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 180,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 178,
+                  "name": "esEmpresaValida",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 165,
+                  "src": "1065:15:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_address_$",
+                    "typeString": "modifier (address)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1065:24:1"
+              }
+            ],
+            "name": "getEmpresaNombre",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 177,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 176,
+                  "name": "_cuenta",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 191,
+                  "src": "1036:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 175,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1036:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1035:17:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 183,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 182,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 191,
+                  "src": "1099:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 181,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1099:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1098:8:1"
+            },
+            "scope": 223,
+            "src": "1010:146:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 207,
+              "nodeType": "Block",
+              "src": "1360:47:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 201,
+                            "name": "empresas",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 150,
+                            "src": "1378:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
+                              "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
+                            }
+                          },
+                          "id": 203,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 202,
+                            "name": "_cuenta",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 193,
+                            "src": "1387:7:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1378:17:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Empresa_$146_storage",
+                            "typeString": "struct Empresas.Empresa storage ref"
+                          }
+                        },
+                        "id": 204,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "cif",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 143,
+                        "src": "1378:21:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      }
+                    ],
+                    "id": 205,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "1377:23:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 200,
+                  "id": 206,
+                  "nodeType": "Return",
+                  "src": "1370:30:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 208,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 196,
+                    "name": "_cuenta",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 193,
+                    "src": "1335:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 197,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 195,
+                  "name": "esEmpresaValida",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 165,
+                  "src": "1319:15:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_address_$",
+                    "typeString": "modifier (address)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1319:24:1"
+              }
+            ],
+            "name": "getEmpresaCIF",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 194,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 193,
+                  "name": "_cuenta",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 208,
+                  "src": "1290:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 192,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1290:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1289:17:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 200,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 199,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 208,
+                  "src": "1353:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 198,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1353:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1352:8:1"
+            },
+            "scope": 223,
+            "src": "1267:140:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 221,
+              "nodeType": "Block",
+              "src": "1588:51:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 215,
+                            "name": "empresas",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 150,
+                            "src": "1606:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Empresa_$146_storage_$",
+                              "typeString": "mapping(address => struct Empresas.Empresa storage ref)"
+                            }
+                          },
+                          "id": 217,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 216,
+                            "name": "_cuenta",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 210,
+                            "src": "1615:7:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1606:17:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Empresa_$146_storage",
+                            "typeString": "struct Empresas.Empresa storage ref"
+                          }
+                        },
+                        "id": 218,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "isValue",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 145,
+                        "src": "1606:25:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "id": 219,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "1605:27:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 214,
+                  "id": 220,
+                  "nodeType": "Return",
+                  "src": "1598:34:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 222,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
             "modifiers": [],
-            "name": "getEmpresaInfo",
+            "name": "existeEmpresa",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 118,
+              "id": 211,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 117,
+                  "id": 210,
                   "name": "_cuenta",
                   "nodeType": "VariableDeclaration",
-                  "scope": 149,
-                  "src": "1032:15:1",
+                  "scope": 222,
+                  "src": "1545:15:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1747,10 +2065,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 116,
+                    "id": 209,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1032:7:1",
+                    "src": "1545:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1760,106 +2078,54 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1031:17:1"
+              "src": "1544:17:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 125,
+              "id": 214,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 120,
+                  "id": 213,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 149,
-                  "src": "1070:6:1",
+                  "scope": 222,
+                  "src": "1583:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_string_memory_ptr",
-                    "typeString": "string"
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 119,
-                    "name": "string",
+                    "id": 212,
+                    "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1070:6:1",
+                    "src": "1583:4:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_string_storage_ptr",
-                      "typeString": "string"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 122,
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 149,
-                  "src": "1078:6:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_string_memory_ptr",
-                    "typeString": "string"
-                  },
-                  "typeName": {
-                    "id": 121,
-                    "name": "string",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1078:6:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_string_storage_ptr",
-                      "typeString": "string"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 124,
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 149,
-                  "src": "1086:7:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 123,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1086:7:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "1069:25:1"
+              "src": "1582:6:1"
             },
-            "scope": 150,
-            "src": "1008:252:1",
+            "scope": 223,
+            "src": "1522:117:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 151,
-        "src": "26:1241:1"
+        "scope": 224,
+        "src": "26:1620:1"
       }
     ],
-    "src": "0:1267:1"
+    "src": "0:1646:1"
   },
   "compiler": {
     "name": "solc",
@@ -1867,5 +2133,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.2",
-  "updatedAt": "2019-03-23T15:32:55.127Z"
+  "updatedAt": "2019-03-24T14:55:18.841Z"
 }
