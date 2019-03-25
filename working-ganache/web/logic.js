@@ -827,7 +827,8 @@ function keccak256(...args) {
     var address_from = localStorage.getItem("accountEmpresa");
 
   	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-  	if(saldo < cantidad){
+		console.log("Vigilando tu saldo. Tienes " + saldo + " e intentas transferir " + cantidad);
+  	if(parseInt(saldo) < cantidad){
   		alert("¡Vaya! No tienes suficientes tokens");
   	}else{
   		plataforma.emitirTokens.sendTransaction(address_to, cantidad, {from: address_from, gas:200000},
@@ -1008,7 +1009,8 @@ function keccak256(...args) {
     var address_from = localStorage.getItem("accountEmpleado");
 
   	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-  	if(saldo < cantidad){
+		console.log("Vigilando tu saldo. Tienes " + saldo + " e intentas transferir " + cantidad);
+  	if(parseInt(saldo) < cantidad){
   		alert("¡Vaya! No tienes suficientes tokens");
   	}else{
 
@@ -1038,7 +1040,8 @@ function keccak256(...args) {
   function canjearTokensCasquitos(){
     var address_from = document.getElementById("addressEmpleado").innerHTML;
     var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-    if(saldo < 1){
+		console.log("Vigilando tu saldo. Tienes " + saldo + " e intentas transferir 1");
+    if(parseInt(saldo) < 1){
 		    alert("¡Vaya! No tienes suficientes tokens");
     }else{
 		    plataforma.canjearTokens.sendTransaction(1, {from: address_from, gas:200000},
@@ -1067,7 +1070,8 @@ function keccak256(...args) {
     var address_from = document.getElementById("addressEmpleado").innerHTML;
 
     var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-    if(saldo < 3){
+		console.log("Vigilando tu saldo. Tienes " + saldo + " e intentas transferir 3");
+    if(parseInt(saldo) < 3){
       alert("¡Vaya! No tienes suficientes tokens");
     }else{
       plataforma.canjearTokens.sendTransaction(3, {from: address_from, gas:200000},
@@ -1095,7 +1099,8 @@ function keccak256(...args) {
   function canjearTokensVacaciones(){
     var address_from = document.getElementById("addressEmpleado").innerHTML;
 	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-	if(saldo < 10){
+	console.log("Vigilando tu saldo. Tienes " + saldo + " e intentas transferir 10");
+	if(parseInt(saldo) < 10){
 		alert("¡Vaya! No tienes suficientes tokens");
 	}else{
 		plataforma.canjearTokens.sendTransaction(10, {from: address_from, gas:200000},

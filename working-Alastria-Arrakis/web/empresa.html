@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="logic.js"></script>
+</head>
+
+<body onload="getInfoEmpresa()">
+
+  <div id="empresa" class="row centrado">
+    <h2> Zona Empresa </h2>
+    <div class="cuadro">
+      <h4>Datos de la empresa </h4>
+      <label for="nEmpresa"> Nombre: </label>
+      <span name = nEmpresa id="nombreEmpresa"> </span>
+      <br/><br/>
+      <label for="cEmpresa"> CIF: </label>
+      <span name = cEmpresa id="cifEmpresa"> </span>
+      <br/><br/>
+      <label for="aEmpresa"> Address: </label>
+      <span name = aEmpresa id="addressEmpresa"> </span>
+	<br/><br/>
+	<button type="button" onclick="logoutEmpresa()" >Cerrar sesion</button>
+    </div>
+      <div class="column-third cuadro">
+      <h4>Emitir tokens para empleados </h4>
+      <form>
+          <label for="empleadoReceptor">Cuenta del empleado receptor</label>
+          <br><br>
+          <input type="text" name="empleadoReceptor" id="empleadoReceptor"></input>
+          <br><br>
+          <label for="cantidadTokens">Cantidad</label>
+          <input type="number" name="cantidadTokens" id="cantidadTokens"/>
+          <br><br>
+          <button type="button" onclick="emitirTokens()" >Emitir tokens</button>
+        </form>
+      </div>
+
+      <div class="column-third cuadro">
+      <h4>Registrar nuevos empleados</h4>
+          <label for="nombreEmpleado">Nombre</label>
+          <input type="text" name="nombreEmpleado" id="nombreEmpleado"></input>
+          <br><br>
+          <label for="numEmpleado">Numero de empleado</label>
+          <input type="text" name="numEmpleado" id="numEmpleado"></input>
+          <br><br>
+          <label for="pssEmpleado">Password</label>
+          <input type="text" name="pssEmpleado" id="pssEmpleado"/>
+          <br><br>
+          <button type="button" id="registrarEmpleado" onclick="registrarEmpleado()" >Registrar empleado</button>
+      </div>
+
+      <div class="column-third cuadro">
+      <h4>Consultas</h4>
+          <button type="button" id="consultarEmpleados" onclick="consultarEmpleados()" >Mis empleados</button>
+          <br><br>
+          <button type="button" id="consultarSaldo" onclick="consultarSaldo()" >Mis tokens</button>
+          <br><br>
+          <label for="saldoEmpleado">Cuenta de empleado</label>
+          <input type="text" name="saldoEmpleado" id="saldoEmpleado"></input>
+          <br>
+          <button type="button" id="saldoEmpleadoButton" onclick="consultarSaldoEmpleado()" >Tokens del empleado</button>
+      </div>
+  </div>
+
+  <div id="console" class="cuadro">
+    <h2> Consola de resultados </h2>
+	   <p id="result"></p>
+     <button type="button" id="limpiar" onclick="limpiar()" >Limpiar</button>
+  </div>
+
+</body>
+</html>

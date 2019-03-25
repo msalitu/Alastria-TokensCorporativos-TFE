@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700);
+
+.cuadro {
+  border-style:solid;
+  border-color:#287EC7;
+  padding:20;
+  text-align: center;
+  margin: 20;
+  box-sizing: content-box;
+}
+
+.column {
+  float: left;
+  width: 70%;
+}
+
+.column-half {
+  float: left;
+  width: 50%;
+}
+
+.column-third {
+  float: left;
+  width: 25%;
+}
+
+.column-portada {
+  float: left;
+  width: 45%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.cursiva {
+  font-style: italic;
+}
+
+.izquierda {
+  text-align: left;
+}
+
+.centrado {
+  text-align: center;
+}
+
+.derecha {
+  text-align: right;
+}
