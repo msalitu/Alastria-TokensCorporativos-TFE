@@ -21,6 +21,7 @@ module.exports = {
        host: "138.4.143.82",
        port: 8545,
        network_id: "*",       // Any network (default: none)
+       from: "0x994319e1b1de09aac4aa5b225a7d5cade79d04ed",
        gasPrice:0,
        gas: 4500000
      }
