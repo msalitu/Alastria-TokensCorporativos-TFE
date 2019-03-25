@@ -667,7 +667,7 @@ accounts[6] es Belen Sanchez, empleado 2 de UNIR
 //Se instancia el objeto web3 y se inicializa el array accounts
 
 //En caso de ganache
-
+/*
 var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
 var accounts = [
 	web3.eth.accounts[0],
@@ -678,15 +678,14 @@ var accounts = [
 	web3.eth.accounts[5],
 	web3.eth.accounts[6]
 ];
-
+*/
 
 // En caso de testnet Alastria local
-/*
+
 var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:22001"));
-web3.eth.defaultAccount = web3.eth.accounts[0];
-web3.personal.unlockAccount(web3.eth.defaultAccount, "Passw0rd");
 var accounts = web3.eth.accounts;
-*/
+web3.personal.unlockAccount(accounts[0], "Passw0rd");
+
 
 
 // En caso de Alastria
@@ -712,7 +711,7 @@ web3.eth.defaultAccount = accounts[0];
 console.log("INIT ACCOUNTS\n" + accounts);
 
 // Se instancia el objeto web3 con la direccion donde esta desplegado el contrato
-var plataforma = web3.eth.contract(ABI).at("0xdda58af127d38870ceb003db0f04b368fdf403c2");
+var plataforma = web3.eth.contract(ABI).at("0x35840d91b29a79f6a7b20d7b27208c9503a58a3a");
 
 // Se compueba que el valor es GLUPI para comprobar que nos deja hacer llamadas correctamente
 //var test_value = plataforma.name.call({from:web3.eth.defaultAccount, gas:30000, gasPrice:0});
@@ -827,7 +826,8 @@ function keccak256(...args) {
     var address_from = localStorage.getItem("accountEmpresa");
 
   	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-  	if(saldo < cantidad){
+		console.log("Vigilando tu saldo. Tienes " + saldo + " e intentas transferir " + cantidad);
+  	if(parseInt(saldo) < cantidad){
   		alert("¡Vaya! No tienes suficientes tokens");
   	}else{
   		plataforma.emitirTokens.sendTransaction(address_to, cantidad, {from: address_from, gas:200000},
@@ -859,9 +859,9 @@ function keccak256(...args) {
     var cuentaEmpresa = localStorage.getItem("accountEmpresa");
 
     // En la testnet local de Alastria
-    //var address = web3.personal.newAccount(pss);
+    var address = web3.personal.newAccount(pss);
     // En ganache y el nodo de la UNIR debe ponerse un indice para una cuenta disponible
-    var address = accounts[2];
+    //var address = accounts[2];
 
     web3.personal.unlockAccount(address, pss, 0);
 
@@ -893,9 +893,9 @@ function keccak256(...args) {
     var cif = document.getElementById("cEmpresaR").value;
     var pss = document.getElementById("pEmpresaR").value;
     // En la testnet local de Alastria
-    //var address = web3.personal.newAccount(pss);
+    var address = web3.personal.newAccount(pss);
     // En ganache y el nodo de la UNIR
-    var address = accounts[1];
+    //var address = accounts[1];
     web3.personal.unlockAccount(address, pss, 0);
 
     plataforma.registrarEmpresa.sendTransaction(address, nombre, cif, {from: accounts[0], gas:200000},
@@ -1008,7 +1008,8 @@ function keccak256(...args) {
     var address_from = localStorage.getItem("accountEmpleado");
 
   	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-  	if(saldo < cantidad){
+		console.log("Vigilando tu saldo. Tienes " + saldo + " e intentas transferir " + cantidad);
+  	if(parseInt(saldo) < cantidad){
   		alert("¡Vaya! No tienes suficientes tokens");
   	}else{
 
@@ -1038,7 +1039,8 @@ function keccak256(...args) {
   function canjearTokensCasquitos(){
     var address_from = document.getElementById("addressEmpleado").innerHTML;
     var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-    if(saldo < 1){
+		console.log("Vigilando tu saldo. Tienes " + saldo + " e intentas transferir 1");
+    if(parseInt(saldo) < 1){
 		    alert("¡Vaya! No tienes suficientes tokens");
     }else{
 		    plataforma.canjearTokens.sendTransaction(1, {from: address_from, gas:200000},
@@ -1065,9 +1067,9 @@ function keccak256(...args) {
 // Canjear tokens para un empleado por una entrada a un evento
   function canjearTokensEvento(){
     var address_from = document.getElementById("addressEmpleado").innerHTML;
-
     var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-    if(saldo < 3){
+		console.log("Vigilando tu saldo. Tienes " + saldo + " e intentas transferir 3");
+    if(parseInt(saldo) < 3){
       alert("¡Vaya! No tienes suficientes tokens");
     }else{
       plataforma.canjearTokens.sendTransaction(3, {from: address_from, gas:200000},
@@ -1094,26 +1096,27 @@ function keccak256(...args) {
 // Canjear tokens para un empleado por un dia de vacaciones
   function canjearTokensVacaciones(){
     var address_from = document.getElementById("addressEmpleado").innerHTML;
-	var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-	if(saldo < 10){
-		alert("¡Vaya! No tienes suficientes tokens");
-	}else{
-		plataforma.canjearTokens.sendTransaction(10, {from: address_from, gas:200000},
-			function (error,result){
-					if (!error){
-						var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
-							function(error, result){
-								if (!error){
-							    		imprimir("OK! El empleado " + result.args._from + " ha canjeado 10 tokens a cambio de un dia de vacaciones");
-									var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
-									document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
-								}else{
-									console.log("Error" + error);
-								}
-							});
-					} else {
-						console.error("Error" + error);
-					}
-				});
-	     }
+		var saldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+		console.log("Vigilando tu saldo. Tienes " + saldo + " e intentas transferir 10");
+		if(parseInt(saldo) < 10){
+			alert("¡Vaya! No tienes suficientes tokens");
+		}else{
+			plataforma.canjearTokens.sendTransaction(10, {from: address_from, gas:200000},
+				function (error,result){
+						if (!error){
+							var event = plataforma.TokensEmitidos({},{fromBlock:'latest', toBlock:'latest'},
+								function(error, result){
+									if (!error){
+								    		imprimir("OK! El empleado " + result.args._from + " ha canjeado 10 tokens a cambio de un dia de vacaciones");
+										var nuevoSaldo = plataforma.balanceOf.call(address_from, {from: address_from, gas:30000});
+										document.getElementById("tokensEmpleado").innerHTML = nuevoSaldo;
+									}else{
+										console.log("Error" + error);
+									}
+								});
+						} else {
+							console.error("Error" + error);
+						}
+					});
+		     }
   }
